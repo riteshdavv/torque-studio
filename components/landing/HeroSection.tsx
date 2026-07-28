@@ -12,20 +12,9 @@ gsap.registerPlugin(ScrollTrigger)
 
 // All images available in /public (excluding hero.png which is the background)
 const trailImages = [
-  "/inrotation.png",
-  "/listed1.png",
-  "/listed2.png",
-  "/listed3.png",
-  "/neverstale1.png",
-  "/neverstale2.png",
-  "/neverstale3.png",
-  "/onesystem1.png",
-  "/onesystem2.png",
-  "/onesystem3.png",
-  "/sold1.png",
-  "/sold2.png",
-  "/sold3.png",
-  "/walkthrough.png",
+  "/craft1.png",
+  "/craft2.png",
+  "/craft3.png",
 ]
 
 export function HeroSection() {

@@ -13,20 +13,9 @@ export type WorkflowEntry = {
 };
 
 const trailImages = [
-  "/inrotation.png",
-  "/listed1.png",
-  "/listed2.png",
-  "/listed3.png",
-  "/neverstale1.png",
-  "/neverstale2.png",
-  "/neverstale3.png",
-  "/onesystem1.png",
-  "/onesystem2.png",
-  "/onesystem3.png",
-  "/sold1.png",
-  "/sold2.png",
-  "/sold3.png",
-  "/walkthrough.png",
+  "/craft1.png",
+  "/craft2.png",
+  "/craft3.png",
 ]
 
 
@@ -130,7 +119,7 @@ export function WorkflowSection({
       className="w-full bg-[#111111] text-white py-32 px-8 md:px-12 flex flex-col items-center relative overflow-hidden"
     >
 
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 translate-x-48 translate-y-32">
         <ImageTrail
         containerRef={containerRef}
           rotationRange={0}
