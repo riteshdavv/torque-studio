@@ -150,7 +150,7 @@ export function HeroSection() {
 
         {/* CTA link */}
         <BlurFade delay={1.2} yOffset={16} className="flex items-center justify-center md:justify-start">
-          <Link data-cursor="hand" href="#" className="group flex flex-col items-start gap-2 text-md tracking-[0.1em] mt-16 uppercase text-zinc-200 font-sans">
+          <Link data-cursor="hand" href="#process" onClick={(e) => handleNavClick(e, "#process")} className="group flex flex-col items-start gap-2 text-md tracking-[0.1em] mt-16 uppercase text-zinc-200 font-sans">
             <span>VIEW PROCESS &rarr;</span>
             <span className="w-full h-[1px] bg-zinc-400 group-hover:bg-white transition-colors"></span>
           </Link>
