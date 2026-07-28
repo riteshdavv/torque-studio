@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-sans {
+    font-family: "Joan", ui-sans-serif, system-ui, sans-serif !important;
+  }
+  .font-serif {
+    font-family: "Fraunces", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif !important;
+    font-optical-sizing: auto;
+    font-variation-settings: "SOFT" 0, "WONK" 0;
+  }
+}
+
+* {
+  cursor: none;
+}
+
+[data-cursor="native"],
+[data-cursor="native"] * {
+  cursor: pointer;
+}
+
+body {
+  cursor: none;
+  /* Lenis owns scrolling — prevent CSS smooth-scroll from fighting it */
+  overscroll-behavior: none;
+}
+
+html {
+  /* Must be 'auto' — CSS scroll-behavior: smooth conflicts with Lenis and causes jank */
+  scroll-behavior: auto !important;
+}
+
+
+a, button{
+  cursor: none;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform-origin: top left;
+
+  /* Promote to GPU compositor layer — eliminates jitter */
+  will-change: transform;
+
+  /* Hide by default — shown on first mouse move, hidden when mouse leaves window */
+  opacity: 0;
+  transition: opacity 0.2s ease;
+
+  /* Color Inversion */
+  mix-blend-mode: difference;
+  color: #ffffff;
+  transform: translate(-50%, -50%); /* Centers cursor on the exact coordinate */
+}
+
+/* Force the cursor container to isolate itself from the difference mode */
+.custom-cursor:has(svg#hand) {
+  mix-blend-mode: normal !important;
+}
+
+.custom-cursor svg {
+  display: block;
+}
+
+.custom-cursor svg#hand {
+  isolation: isolate;
+  mix-blend-mode: normal !important;
+  filter: none !important;
+}
+
+.custom-cursor svg#hand path {
+  fill: #FFFFFF !important;
+}
