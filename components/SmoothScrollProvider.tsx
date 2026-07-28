@@ -20,34 +20,28 @@ export function useLenis() {
 
 // ─── Provider ────────────────────────────────────────────────────────────────
 export function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
-  const [lenis, setLenis] = useState<Lenis | null>(null)
+  const lenisRef = useRef<Lenis | null>(null)
+  const [ready, setReady] = useState(false)
 
   useEffect(() => {
-    const lenisInstance = new Lenis({
-      duration: 3,
-      easing: (t: number) => Math.min(10, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-      autoRaf: false,
-    })
-
-    setLenis(lenisInstance) // triggers re-render, context value updates
-
-    lenisInstance.on("scroll", ScrollTrigger.update)
-
-    const gsapTick = (time: number) => lenisInstance.raf(time * 1000)
-    gsap.ticker.add(gsapTick)
+    const instance = new Lenis({ 
+      duration: 1.2, 
+      easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)), 
+      smoothWheel: true, 
+      autoRaf: false })
+    lenisRef.current = instance
+    setReady(true)
+    instance.on("scroll", ScrollTrigger.update)
+    const tick = (time: number) => instance.raf(time * 1000)
+    gsap.ticker.add(tick)
     gsap.ticker.lagSmoothing(0)
-
     return () => {
-      gsap.ticker.remove(gsapTick)
-      lenisInstance.destroy()
-      setLenis(null)
+      gsap.ticker.remove(tick)
+      instance.destroy()
+      lenisRef.current = null
+      setReady(false)
     }
   }, [])
 
-  return (
-    <LenisContext.Provider value={lenis}>
-      {children}
-    </LenisContext.Provider>
-  )
+  return <LenisContext.Provider value={ready ? lenisRef.current : null}>{children}</LenisContext.Provider>
 }

@@ -154,7 +154,7 @@ const VideoPlayer = ({ src }: { src: string }) => {
             onMouseLeave={() => setShowControls(false)}
         >
             <div className={`absolute left-1/2 top-1/2 w-15 h-15 z-50 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center rounded-full pointer-events-none transition-opacity duration-300 ${isPlaying
-                    ? "opacity-0 group-hover:opacity-100 group-hover:bg-whitea"
+                    ? "opacity-0 group-hover:opacity-100 group-hover:bg-white"
                     : "opacity-100 bg-white"
                 }`}>
                 {isPlaying ? (
