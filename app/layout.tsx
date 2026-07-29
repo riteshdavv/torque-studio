@@ -2,6 +2,15 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { CustomCursor } from "@/components/CustomCursor"
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Torque | Creative and Content Production Studio",
+  description: "We build content, video, and ad creative for multi-location brands and real estate teams.",
+  icons: {
+    icon: "/icon.png",
+  }
+}
 
 export default function RootLayout({
   children,
