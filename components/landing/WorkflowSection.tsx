@@ -157,7 +157,7 @@ export function WorkflowSection({
         )}
 
         <div
-          className="pointer-events-none absolute z-50 overflow-hidden shadow-2xl"
+          className="pointer-events-none absolute z-50 overflow-hidden shadow-2xl translate-x-32 translate-y-40"
           style={{
             left: 0,
             top: 0,
