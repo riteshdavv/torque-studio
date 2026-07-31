@@ -3,10 +3,10 @@ import { BlurFade } from "@/components/BlurFade"
 
 export function SoldSection() {
   return (
-    <section className="w-full bg-[#f8f8f8] text-black py-24 px-8 md:px-12 flex flex-col items-center">
+    <section className="w-full bg-[#f8f8f8] text-black py-16 md:py-24 px-6 md:px-12 flex flex-col items-center">
       <div className="max-w-7xl w-full flex flex-col mb-16 relative">
-        <div className="flex flex-col md:flex-row md:items-end justify-between w-full">
-          <div className="flex flex-col gap-4 max-w-lg mb-8 md:mb-0">
+        <div className="flex flex-col-reverse md:flex-row md:items-end justify-between w-full">
+          <div className="flex flex-col gap-4 max-w-lg mt-8 md:mt-0">
             <BlurFade delay={0.25} inView>
               <span className="text-sm tracking-widest text-zinc-700 uppercase font-sans whitespace-nowrap hidden md:block mb-2">03 — ASSETS</span>
               <p className="font-sans text-lg leading-relaxed text-zinc-700">
@@ -25,13 +25,13 @@ export function SoldSection() {
 
       <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-12 gap-4 reveal-grid">
         {/* Images */}
-        <div className="md:col-span-5 h-[300px] md:h-[450px] relative overflow-hidden reveal-image-container">
+        <div className="md:col-span-5 h-[250px] md:h-[450px] relative overflow-hidden reveal-image-container">
           <Image src="/sold1.png" alt="Sold 1" fill className="object-cover" />
         </div>
-        <div className="md:col-span-5 h-[300px] md:h-[450px] relative overflow-hidden">
+        <div className="md:col-span-5 h-[250px] md:h-[450px] relative overflow-hidden">
           <Image src="/sold2.png" alt="Sold 2" fill className="object-cover" />
         </div>
-        <div className="md:col-span-2 h-[300px] md:h-[450px] relative overflow-hidden reveal-image-container">
+        <div className="md:col-span-2 h-[250px] md:h-[450px] relative overflow-hidden reveal-image-container">
           <Image src="/sold3.png" alt="Sold 3" fill className="object-cover" />
         </div>
       </div>

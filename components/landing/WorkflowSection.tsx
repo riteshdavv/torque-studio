@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { ImageTrail } from "@/components/ImageTrail";
+import { BlurFade } from "@/components/BlurFade";
 import Image from "next/image";
 
 export type WorkflowEntry = {
@@ -116,7 +117,7 @@ export function WorkflowSection({
     <section
       id="process"
       onMouseMove={handleMouseMove}
-      className="w-full bg-[#111111] text-white py-32 px-8 md:px-12 flex flex-col items-center relative overflow-hidden"
+      className="w-full bg-[#111111] text-white py-16 md:py-32 px-6 md:px-12 flex flex-col items-center relative overflow-hidden"
     >
 
       <div className="absolute inset-0 z-0 translate-x-48 translate-y-32">
@@ -147,7 +148,7 @@ export function WorkflowSection({
         </ImageTrail>
       </div>
       <div ref={containerRef} className="max-w-5xl w-full flex flex-col relative z-10">
-        <h2 className="font-serif text-5xl md:text-7xl tracking-tighter uppercase mb-6 text-center italic text-zinc-300">
+        <h2 className="font-serif text-4xl md:text-7xl tracking-tighter uppercase mb-6 text-center italic text-zinc-300">
           {title}
         </h2>
         {description && (
@@ -157,7 +158,7 @@ export function WorkflowSection({
         )}
 
         <div
-          className="pointer-events-none absolute z-50 overflow-hidden shadow-2xl translate-x-32 translate-y-40"
+          className="pointer-events-none absolute z-50 overflow-hidden shadow-2xl translate-x-32 translate-y-40 hidden md:block"
           style={{
             left: 0,
             top: 0,
@@ -218,7 +219,7 @@ export function WorkflowSection({
 
                     {/* Title with animated underline */}
                     <div className="inline-flex items-center gap-4">
-                      <h3 className="text-white font-serif text-3xl md:text-5xl tracking-tight uppercase">
+                      <h3 className="text-white font-serif text-2xl md:text-5xl tracking-tight uppercase">
                         <span className="relative inline-block">
                           {entry.title}
                           {/* Animated underline */}
@@ -247,7 +248,7 @@ export function WorkflowSection({
                   </div>
 
                   {/* Description with fade effect */}
-                  <div className="md:max-w-[260px] lg:max-w-sm md:text-right mt-2 md:mt-0 ml-[124px] md:ml-0">
+                  <div className="md:max-w-[260px] lg:max-w-sm md:text-right mt-4 md:mt-0 ml-0 md:ml-0">
                     <p
                       className={`
                         font-sans text-md leading-relaxed
@@ -257,6 +258,17 @@ export function WorkflowSection({
                     >
                       {entry.description}
                     </p>
+                  </div>
+                  
+                  {/* Mobile inline image */}
+                  <div className="block md:hidden mt-6 w-full">
+                    <BlurFade delay={0.1} inView>
+                      <img 
+                        src={entry.image} 
+                        alt={entry.title} 
+                        className="w-full h-[220px] object-cover" 
+                      />
+                    </BlurFade>
                   </div>
                 </div>
               </div>

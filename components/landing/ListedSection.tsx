@@ -3,14 +3,14 @@ import { BlurFade } from "@/components/BlurFade"
 
 export function ListedSection() {
   return (
-    <section id="work" className="w-full bg-[#f8f8f8] text-black pt-16 px-8 md:px-12 flex flex-col items-center">
+    <section id="work" className="w-full bg-[#f8f8f8] text-black pt-16 px-6 md:px-12 flex flex-col items-center">
       <div className="max-w-7xl w-full flex flex-col mb-16 relative">
         {/* Top dividing header */}
         <BlurFade delay={0.25} inView>
-          <div className="flex items-center gap-4 text-md tracking-widest text-zinc-700 uppercase mb-20 font-sans mx-auto w-full justify-center">
-            <span className="w-8 h-[0.5px] bg-zinc-500"></span>
+          <div className="flex items-center gap-2 md:gap-4 text-xs md:text-md tracking-widest text-zinc-700 uppercase mb-12 md:mb-20 font-sans mx-auto w-full justify-center text-center">
+            <span className="w-4 md:w-8 h-[0.5px] bg-zinc-500 hidden sm:block"></span>
             <span>COLLECTION // 01 — REAL ESTATE</span>
-            <span className="w-8 h-[0.5px] bg-zinc-500"></span>
+            <span className="w-4 md:w-8 h-[0.5px] bg-zinc-500 hidden sm:block"></span>
           </div>
         </BlurFade>
 
@@ -34,13 +34,13 @@ export function ListedSection() {
 
       <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-12 gap-4 reveal-grid">
         {/* Images */}
-        <div className="md:col-span-5 h-[300px] md:h-[450px] relative overflow-hidden reveal-image-container">
+        <div className="md:col-span-5 h-[250px] md:h-[450px] relative overflow-hidden reveal-image-container">
           <Image src="/listed1.png" alt="Listed 1" fill className="object-cover" />
         </div>
-        <div className="md:col-span-5 h-[300px] md:h-[450px] relative overflow-hidden">
+        <div className="md:col-span-5 h-[250px] md:h-[450px] relative overflow-hidden">
           <Image src="/listed2.png" alt="Listed 2" fill className="object-cover" />
         </div>
-        <div className="md:col-span-2 h-[300px] md:h-[450px] relative overflow-hidden reveal-image-container">
+        <div className="md:col-span-2 h-[250px] md:h-[450px] relative overflow-hidden reveal-image-container">
           <Image src="/listed3.png" alt="Listed 3" fill className="object-cover" />
         </div>
       </div>

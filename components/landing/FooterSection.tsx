@@ -50,7 +50,7 @@ export function FooterSection() {
   }, [])
 
   return (
-    <footer className="w-full bg-[#111111] text-white pt-32 pb-24 flex flex-col items-center relative">
+    <footer className="w-full bg-[#111111] text-white pt-16 md:pt-32 pb-12 md:pb-24 flex flex-col items-center relative">
       {/* Gradient fade from previous section */}
       <div className="absolute top-0 left-0 w-full h-132 bg-gradient-to-b from-[#f8f8f8] to-transparent pointer-events-none z-10"></div>
 
@@ -63,19 +63,19 @@ export function FooterSection() {
         <div className="flex justify-between">
           <h2
             ref={logotypeRef}
-            className="font-serif text-[6rem] md:text-[12rem] lg:text-[22rem] leading-[0.75] tracking-tighter uppercase mb-16 origin-bottom-left"
+            className="font-serif text-[4rem] sm:text-[6rem] md:text-[12rem] lg:text-[22rem] leading-[0.75] tracking-tighter uppercase mb-8 md:mb-16 origin-bottom-left"
           >
             TORQUE.
           </h2>
         </div>
       </div>
       <div className="w-full flex flex-col relative z-10">
-        <div className="w-full flex justify-between gap-4">
-          <p className="pl-12 font-sans text-md uppercase tracking-[0.15em] leading-8 text-zinc-600">
+        <div className="w-full flex flex-col md:flex-row justify-between gap-8 md:gap-4 px-6 md:px-12">
+          <p className="pl-0 md:pl-12 font-sans text-sm md:text-md uppercase tracking-[0.15em] leading-8 text-zinc-600 text-center md:text-left">
             Creative and content production for multi-location brands<br />and real estate teams .
           </p>
-          <div className="pr-12 flex flex-col text-right gap-2 text-md tracking-widest text-zinc-500 uppercase font-sans justify-center">
-            <div className="flex gap-8 justify-end">
+          <div className="pr-0 md:pr-12 flex flex-col text-center md:text-right gap-4 md:gap-2 text-sm md:text-md tracking-widest text-zinc-500 uppercase font-sans justify-center">
+            <div className="flex gap-4 md:gap-8 justify-center md:justify-end">
               <Link data-cursor="hand" href="#work" onClick={(e) => handleNavClick(e, "#work")} className="hover:text-white transition-colors">WORK</Link>
               <Link data-cursor="hand" href="#process" onClick={(e) => handleNavClick(e, "#process")} className="hover:text-white transition-colors">PROCESS</Link>
               <Link data-cursor="hand" href="#about" onClick={(e) => handleNavClick(e, "#about")} className="hover:text-white transition-colors">ABOUT</Link>

@@ -1,10 +1,12 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { SplitText } from "gsap/SplitText"
 import { BlurFade } from "@/components/BlurFade"
+import Link from "next/link"
+import { PopupButton } from "react-calendly"
 
 // ScrollTrigger is already registered globally in SmoothScrollProvider,
 // but SplitText must be registered here since it is only used in this file.
@@ -13,10 +15,17 @@ gsap.registerPlugin(ScrollTrigger, SplitText)
 export function FifteenMinutesSection() {
   const headlineRef = useRef<HTMLHeadingElement>(null)
   const sectionRef = useRef<HTMLElement>(null)
+  const rootRef = useRef<HTMLDivElement>(null) // Calendly needs a portal root
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     const headline = headlineRef.current
     const section = sectionRef.current
+
     if (!headline || !section) return
 
     // Respect prefers-reduced-motion — BlurFade on the headline is removed,
@@ -71,9 +80,9 @@ export function FifteenMinutesSection() {
     <section
       id="contact"
       ref={sectionRef}
-      className="w-full bg-[#f8f8f8] text-black py-32 px-8 md:px-12 flex flex-col items-center"
+      className="w-full bg-[#f8f8f8] text-black py-16 md:py-32 px-6 md:px-12 flex flex-col items-center"
     >
-      <div className="max-w-7xl w-full flex flex-col items-start relative">
+      <div ref={rootRef} className="max-w-7xl w-full flex flex-col items-start relative">
         {/*
           BlurFade removed from the h2 — GSAP SplitText handles the reveal.
           The headline is rendered at full opacity so the SplitText animation
@@ -82,22 +91,22 @@ export function FifteenMinutesSection() {
         */}
         <h2
           ref={headlineRef}
-          className="font-serif text-6xl md:text-[8rem] leading-[1] tracking-tighter uppercase mb-16"
+          className="font-serif text-[4rem] md:text-[8rem] leading-[1] tracking-tighter uppercase mb-16 text-center md:text-left"
         >
           <span className="block text-zinc-900">FIFTEEN MINUTES.</span>
           <span className="block italic">THAT&apos;S IT.</span>
         </h2>
 
-        <div className="justify-items-end items-end mt-16 max-w-[40rem] text-zinc-700 text-[1.4rem] leading-relaxed tracking-[0.1em] font-sans absolute -right-16 bottom-43 uppercase">
+        <div className="justify-items-end items-end mt-8 md:mt-16 max-w-[40rem] text-zinc-700 text-lg md:text-[1.4rem] leading-relaxed tracking-[0.1em] font-sans static md:absolute md:-right-16 md:bottom-43 uppercase text-center md:text-right w-full md:w-auto">
           <BlurFade delay={0.25 * 2} inView>
             <p>
               Pick a slot and tell us what you&apos;re working on.
             </p>
           </BlurFade>
         </div>
-        <div className="flex flex-col md:flex-row w-full justify-between items-start md:items-end gap-12 mt-8">
+        <div className="flex flex-col md:flex-row w-full justify-between items-start md:items-end gap-8 md:gap-12 mt-8 text-center md:text-left">
           <BlurFade delay={0.25 * 3} inView>
-            <p className="font-sans text-xl tracking-[0.02em] leading-relaxed text-zinc-700">
+            <p className="font-sans text-base md:text-xl tracking-[0.02em] leading-relaxed text-zinc-700">
               We&apos;ll tell you straight whether it&apos;s a fit → no deck, no pressure, no obligation.<br />
               If your feed isn&apos;t where you want it yet, this is the fastest way to find out what fixing it actually looks like.
             </p>
@@ -106,12 +115,20 @@ export function FifteenMinutesSection() {
       </div>
       <div className="flex items-center justify-center w-full mt-16">
         <div className="flex flex-col items-center">
-          <button data-cursor="hand" className="bg-zinc-800 text-white px-12 py-4 text-lg tracking-[0.2em] uppercase font-sans hover:bg-black transition-colors mb-6">
-            BOOK A CALL →
-          </button>
-          <p className="font-sans text-md tracking-widest text-zinc-600">
-            prefer email? [hello@torque.com]
-          </p>
+          {mounted && rootRef.current && (
+            <PopupButton
+              url="https://calendly.com/ritesh-torquestudio/15min"
+              rootElement={rootRef.current}
+              text="BOOK A CALL →"
+              className="bg-zinc-800 text-white px-12 py-4 text-lg tracking-[0.2em] uppercase font-sans hover:bg-black transition-colors mb-6"
+            />
+          )}
+          <Link
+            href="mailto:hello@torquestudio.co"
+            className="font-sans text-base md:text-lg py-4 tracking-widest text-zinc-600"
+          >
+            prefer email? hello@torquestudio.co
+          </Link>
         </div>
       </div>
     </section>

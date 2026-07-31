@@ -37,10 +37,10 @@ export function CraftSection() {
   })
 
   return (
-    <section id="about" className="w-full bg-[#f8f8f8] text-black pt-32 flex flex-col items-center overflow-hidden">
-      <div className="max-w-5xl w-full flex flex-col items-center px-8 md:px-12">
+    <section id="about" className="w-full bg-[#f8f8f8] text-black pt-16 md:pt-32 flex flex-col items-center overflow-hidden">
+      <div className="max-w-5xl w-full flex flex-col items-center px-6 md:px-12 text-center md:text-left">
         <BlurFade delay={0.25} inView>
-          <h2 className="font-serif text-3xl md:text-8xl uppercase mb-8 font-normal italic">
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-8xl uppercase mb-8 font-normal italic text-center md:text-left">
             CRAFT, at SCALE.
           </h2>
         </BlurFade>

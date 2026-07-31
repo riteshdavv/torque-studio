@@ -81,7 +81,7 @@ export function HeroSection() {
 
       {/* Navigation */}
       <BlurFade delay={0.3} yOffset={-24} className="relative z-20 transition ease-out">
-        <header className="flex w-full items-center justify-between px-8 pt-3 pb-14 md:px-24">
+        <header className="flex w-full items-center justify-between px-6 pt-3 pb-8 md:pb-14 md:px-24">
           <div className="text-lg md:text-2xl font-serif">TORQUE.</div>
 
           <nav className="hidden md:flex items-center gap-12 text-[14px] uppercase tracking-[0.12em] text-zinc-300 font-sans">
@@ -96,8 +96,8 @@ export function HeroSection() {
       </BlurFade>
 
       {/* Main Content */}
-      <div className="flex flex-1 flex-col md:px-24 w-fit relative z-10 pt-6 pb-24">
-        <div className="flex">
+      <div className="flex flex-1 flex-col px-6 md:px-24 w-fit relative z-10 pt-6 pb-24">
+        <div className="flex flex-col md:flex-row">
           {/* Headline with Image Trail */}
           <div
             ref={titleRef}
@@ -134,14 +134,14 @@ export function HeroSection() {
 
             {/* The actual headline — always on top, pointer-events active */}
             <BlurFade delay={0.5} yOffset={0}>
-              <h1 className="relative z-10 font-serif text-5xl md:text-[6rem] lg:text-[8rem] xl:text-[10rem] leading-[0.95] tracking-tight max-w-6xl cursor-none">
+              <h1 className="relative z-10 font-serif text-[5.5rem] md:text-[6rem] lg:text-[8rem] xl:text-[10rem] leading-[0.95] tracking-tight max-w-6xl cursor-none">
                 <span className="italic">Content, made for<br />rooms and doors that matter.</span>
               </h1>
             </BlurFade>
           </div>
 
           {/* Sub-copy */}
-          <BlurFade delay={1} className="justify-items-end items-end mt-16 max-w-[40rem] text-zinc-300 text-lg leading-relaxed tracking-[0.15em] font-sans absolute right-4 bottom-51">
+          <BlurFade delay={1} className="justify-items-end items-end mt-12 md:mt-16 max-w-[40rem] text-zinc-300 text-[1rem] pt-8 md:pt-0 md:text-lg leading-relaxed tracking-[0.15em] font-sans static md:absolute md:right-4 md:bottom-51">
             <p>
               WE BUILD CONTENT, VIDEO, AND AD CREATIVE FOR MULTI-LOCATION BRANDS AND REAL ESTATE TEAMS.
             </p>
@@ -150,7 +150,7 @@ export function HeroSection() {
 
         {/* CTA link */}
         <BlurFade delay={1.2} yOffset={16} className="flex items-center justify-center md:justify-start">
-          <Link data-cursor="hand" href="#process" onClick={(e) => handleNavClick(e, "#process")} className="group flex flex-col items-start gap-2 text-md tracking-[0.1em] mt-16 uppercase text-zinc-200 font-sans">
+          <Link data-cursor="hand" href="#process" onClick={(e) => handleNavClick(e, "#process")} className="group flex flex-col items-start gap-2 text-md tracking-[0.1em] mt-12 md:mt-16 uppercase text-zinc-200 font-sans">
             <span>VIEW PROCESS &rarr;</span>
             <span className="w-full h-[1px] bg-zinc-400 group-hover:bg-white transition-colors"></span>
           </Link>
