@@ -3,6 +3,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { CustomCursor } from "@/components/CustomCursor"
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider"
 import type { Metadata } from "next"
+import Script from "next/script"
 
 export const metadata: Metadata = {
   title: "Torque | Creative and Content Production Studio",
@@ -23,6 +24,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Joan&display=swap" rel="stylesheet" />
+        {/* Preconnect and preload Calendly assets for faster popup load */}
+        <link rel="preconnect" href="https://assets.calendly.com" />
+        <link rel="preconnect" href="https://calendly.com" />
+        <link rel="preload" href="https://assets.calendly.com/assets/external/widget.css" as="style" />
+        <link rel="preload" href="https://assets.calendly.com/assets/external/widget.js" as="script" />
       </head>
       <body className="font-sans antialiased">
         <ThemeProvider>
@@ -31,6 +37,7 @@ export default function RootLayout({
             {children}
           </SmoothScrollProvider>
         </ThemeProvider>
+        <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />
       </body>
     </html>
   )

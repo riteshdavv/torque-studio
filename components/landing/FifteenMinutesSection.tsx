@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { SplitText } from "gsap/SplitText"
 import { BlurFade } from "@/components/BlurFade"
 import Link from "next/link"
-import { PopupButton } from "react-calendly"
+import { InlineWidget } from "react-calendly"
 
 // ScrollTrigger is already registered globally in SmoothScrollProvider,
 // but SplitText must be registered here since it is only used in this file.
@@ -17,10 +17,22 @@ export function FifteenMinutesSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const rootRef = useRef<HTMLDivElement>(null) // Calendly needs a portal root
   const [mounted, setMounted] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
     setMounted(true)
   }, [])
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "unset"
+    }
+    return () => {
+      document.body.style.overflow = "unset"
+    }
+  }, [isModalOpen])
 
   useEffect(() => {
     const headline = headlineRef.current
@@ -115,14 +127,12 @@ export function FifteenMinutesSection() {
       </div>
       <div className="flex items-center justify-center w-full mt-16">
         <div className="flex flex-col items-center">
-          {mounted && rootRef.current && (
-            <PopupButton
-              url="https://calendly.com/ritesh-torquestudio/15min"
-              rootElement={rootRef.current}
-              text="BOOK A CALL →"
-              className="bg-zinc-800 text-white px-12 py-4 text-lg tracking-[0.2em] uppercase font-sans hover:bg-black transition-colors mb-6"
-            />
-          )}
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="bg-zinc-800 text-white px-12 py-4 text-lg tracking-[0.2em] uppercase font-sans hover:bg-black transition-colors mb-6"
+          >
+            BOOK A CALL →
+          </button>
           <Link
             href="mailto:hello@torquestudio.co"
             className="font-sans text-base md:text-lg py-4 tracking-widest text-zinc-600"
@@ -131,6 +141,47 @@ export function FifteenMinutesSection() {
           </Link>
         </div>
       </div>
+
+      {mounted && (
+        <div
+          className={`fixed inset-0 z-[9999] flex items-center justify-center transition-all duration-300 ${
+            isModalOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
+        >
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onClick={() => setIsModalOpen(false)}
+          />
+
+          {/* Modal Content */}
+          <div
+            className={`relative w-[95vw] md:w-[80vw] max-w-[1050px] h-[85vh] bg-white rounded-xl shadow-2xl overflow-hidden transition-transform duration-500 delay-75 ${
+              isModalOpen ? "scale-100 translate-y-0" : "scale-95 translate-y-8"
+            }`}
+          >
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-4 right-4 md:top-6 md:right-6 z-50 p-2 bg-black/5 rounded-full hover:bg-black/10 transition-colors text-black"
+              aria-label="Close modal"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+            
+            {/* 
+              We load the InlineWidget in the background so the iframe connects, 
+              downloads resources, and parses before the user clicks.
+            */}
+            <InlineWidget
+              url="https://calendly.com/ritesh-torquestudio/15min"
+              styles={{ height: "100%", width: "100%" }}
+            />
+          </div>
+        </div>
+      )}
     </section>
   )
 }
