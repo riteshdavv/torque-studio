@@ -6,7 +6,7 @@ export function OneSystemSection() {
     <section className="w-full bg-[#f8f8f8] text-black pt-16 px-6 md:px-12 flex flex-col items-center border-t border-t-zinc-500">
       <div className="max-w-7xl w-full flex flex-col mb-16 relative">
         <BlurFade delay={0.25} inView>
-          <div className="flex items-center gap-2 md:gap-4 text-xs md:text-md tracking-widest text-zinc-700 uppercase mb-12 md:mb-20 font-sans mx-auto w-full justify-center text-center">
+          <div className="flex items-center gap-2 md:gap-4 text-xs md:text-base tracking-widest text-zinc-700 uppercase mb-12 md:mb-20 font-sans mx-auto w-full justify-center text-center">
             <span className="w-4 md:w-8 h-[0.5px] bg-zinc-500 hidden sm:block"></span>
             <span>COLLECTION // 02 — FRANCHISE</span>
             <span className="w-4 md:w-8 h-[0.5px] bg-zinc-500 hidden sm:block"></span>
