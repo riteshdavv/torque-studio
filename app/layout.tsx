@@ -4,6 +4,7 @@ import { CustomCursor } from "@/components/CustomCursor"
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider"
 import type { Metadata } from "next"
 import Script from "next/script"
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: "Torque | Creative and Content Production Studio",
@@ -53,6 +54,7 @@ export default function RootLayout({
             gtag('config', 'G-YSP1J63312');
           `}
         </Script>
+        <Analytics />
       </body>
     </html>
   )
