@@ -60,7 +60,7 @@ export function FooterSection() {
       </div>
 
       <div className="w-full flex flex-col relative z-10">
-        <div className="flex justify-between overflow-hidden">
+        <div className="flex justify-between overflow-hidden px-6 md:px-0">
           <h2
             ref={logotypeRef}
             className="font-serif text-[4rem] sm:text-[6rem] md:text-[10rem] lg:text-[14rem] xl:text-[18rem] leading-[0.75] tracking-tighter uppercase mb-8 md:mb-16 origin-bottom-left"
