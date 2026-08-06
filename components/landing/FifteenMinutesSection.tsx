@@ -109,7 +109,7 @@ export function FifteenMinutesSection() {
           <span className="block italic">THAT&apos;S IT.</span>
         </h2>
 
-        <div className="justify-items-end items-end mt-8 md:mt-16 max-w-[40rem] text-zinc-700 text-lg md:text-[1.4rem] leading-relaxed tracking-[0.1em] font-sans static md:absolute md:-right-16 md:bottom-43 uppercase text-center md:text-right w-full md:w-auto">
+        <div className="mt-8 md:mt-16 max-w-[32rem] text-zinc-700 text-lg md:text-[1.4rem] leading-relaxed tracking-[0.1em] font-sans uppercase text-center md:text-right w-full md:w-auto md:ml-auto">
           <BlurFade delay={0.25 * 2} inView>
             <p>
               Pick a slot and tell us what you&apos;re working on.

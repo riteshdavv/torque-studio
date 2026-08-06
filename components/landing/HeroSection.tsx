@@ -73,7 +73,7 @@ export function HeroSection() {
           alt="Hero Background"
           fill
           priority
-          className="object-cover scale-125 sm:translate-x-30 lg:translate-x-40"
+          className="object-cover scale-[1.08] object-center"
         />
         {/* Flat black overlay */}
         <div className="absolute inset-0 bg-black/60 pointer-events-none" />
@@ -84,7 +84,7 @@ export function HeroSection() {
         <header className="flex w-full items-center justify-between px-6 pt-3 pb-8 md:pb-14 md:px-24">
           <div className="text-lg md:text-2xl font-serif">TORQUE.</div>
 
-          <nav className="hidden md:flex items-center gap-12 text-[14px] uppercase tracking-[0.12em] text-zinc-300 font-sans">
+          <nav className="hidden md:flex items-center gap-12 text-xs lg:text-[14px] uppercase tracking-[0.12em] text-zinc-300 font-sans">
             <Link data-cursor="hand" href="#work" onClick={(e) => handleNavClick(e, "#work")} className="hover:text-white transition-colors">01 / WORK</Link>
             <Link data-cursor="hand" href="#process" onClick={(e) => handleNavClick(e, "#process")} className="hover:text-white transition-colors">02 / PROCESS</Link>
             <Link data-cursor="hand" href="#about" onClick={(e) => handleNavClick(e, "#about")} className="hover:text-white transition-colors">03 / ABOUT</Link>
@@ -96,7 +96,7 @@ export function HeroSection() {
       </BlurFade>
 
       {/* Main Content */}
-      <div className="flex flex-1 flex-col px-6 md:px-24 w-fit relative z-10 pt-6 pb-24">
+      <div className="flex flex-1 flex-col px-6 md:px-24 w-full relative z-10 pt-6 pb-24">
         <div className="flex flex-col md:flex-row">
           {/* Headline with Image Trail */}
           <div
@@ -135,13 +135,13 @@ export function HeroSection() {
             {/* The actual headline — always on top, pointer-events active */}
             <BlurFade delay={0.5} yOffset={0}>
               <h1 className="relative z-10 font-serif text-[5.5rem] md:text-[6rem] lg:text-[8rem] xl:text-[10rem] leading-[0.95] tracking-tight max-w-6xl cursor-none">
-                <span className="italic">Content, made for<br />rooms and doors that matter.</span>
+                <span className="italic">Content, made for rooms and doors that matter.</span>
               </h1>
             </BlurFade>
           </div>
 
           {/* Sub-copy */}
-          <BlurFade delay={1} className="justify-items-end items-end mt-12 md:mt-16 max-w-[40rem] text-zinc-300 text-[1rem] pt-8 md:pt-0 md:text-lg leading-relaxed tracking-[0.15em] font-sans static md:absolute md:right-4 md:bottom-51">
+          <BlurFade delay={1} className="justify-items-end items-end mt-12 md:mt-16 max-w-[18rem] xl:max-w-[30rem] text-zinc-300 text-xs lg:text-base pt-8 md:pt-0 leading-relaxed tracking-[0.15em] font-sans static md:absolute md:right-24 xl:right-40 md:bottom-51">
             <p>
               WE BUILD CONTENT, VIDEO, AND AD CREATIVE FOR MULTI-LOCATION BRANDS AND REAL ESTATE TEAMS.
             </p>

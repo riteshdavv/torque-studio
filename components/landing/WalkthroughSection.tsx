@@ -7,7 +7,7 @@ export function WalkthroughSection() {
     <section className="w-full bg-[#f8f8f8] text-black pt-16 md:pt-24 px-6 md:px-12 flex flex-col items-center">
       <div className="max-w-7xl w-full flex flex-col items-center">
         <BlurFade delay={0.25} inView>
-          <h2 className="font-serif text-5xl md:text-[8rem] leading-[0.8] tracking-tighter uppercase mb-8 md:mb-16 text-center">
+          <h2 className="font-serif text-[2.5rem] md:text-[6rem] lg:text-[8rem] leading-[0.8] tracking-tighter uppercase mb-8 md:mb-16 text-center">
             <span className="italic">WALKTHROUGH.</span>
           </h2>
         </BlurFade>

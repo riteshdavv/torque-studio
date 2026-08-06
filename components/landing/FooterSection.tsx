@@ -60,10 +60,10 @@ export function FooterSection() {
       </div>
 
       <div className="w-full flex flex-col relative z-10">
-        <div className="flex justify-between">
+        <div className="flex justify-between overflow-hidden">
           <h2
             ref={logotypeRef}
-            className="font-serif text-[4rem] sm:text-[6rem] md:text-[12rem] lg:text-[22rem] leading-[0.75] tracking-tighter uppercase mb-8 md:mb-16 origin-bottom-left"
+            className="font-serif text-[4rem] sm:text-[6rem] md:text-[10rem] lg:text-[14rem] xl:text-[18rem] leading-[0.75] tracking-tighter uppercase mb-8 md:mb-16 origin-bottom-left"
           >
             TORQUE.
           </h2>
@@ -72,7 +72,7 @@ export function FooterSection() {
       <div className="w-full flex flex-col relative z-10">
         <div className="w-full flex flex-col md:flex-row justify-between gap-8 md:gap-4 px-6 md:px-12">
           <p className="pl-0 md:pl-12 font-sans text-sm md:text-md uppercase tracking-[0.15em] leading-8 text-zinc-600 text-center md:text-left">
-            Creative and content production for multi-location brands<br />and real estate teams .
+            Creative and content production for multi-location brands and real estate teams .
           </p>
           <div className="pr-0 md:pr-12 flex flex-col text-center md:text-right gap-4 md:gap-2 text-sm md:text-md tracking-widest text-zinc-500 uppercase font-sans justify-center">
             <div className="flex gap-4 md:gap-8 justify-center md:justify-end">

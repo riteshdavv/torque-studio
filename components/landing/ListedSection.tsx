@@ -14,9 +14,9 @@ export function ListedSection() {
           </div>
         </BlurFade>
 
-        <div className="flex flex-col md:flex-row md:items-end justify-between w-full">
+        <div className="flex flex-col md:flex-row md:items-end justify-between w-full gap-4">
           <BlurFade delay={0.25 * 2} inView>
-            <h2 className="font-serif text-5xl md:text-[8rem] leading-[0.8] tracking-tighter uppercase">
+            <h2 className="font-serif text-5xl md:text-[6rem] lg:text-[8rem] leading-[0.8] tracking-tighter uppercase">
               <span className="italic">LISTED.</span>
             </h2>
           </BlurFade>
@@ -24,7 +24,7 @@ export function ListedSection() {
           <div className="flex flex-col gap-2 mt-8 md:mt-0 max-w-lg">
             <BlurFade delay={0.25 * 3} inView>
               <span className="text-sm tracking-widest text-zinc-700 uppercase font-sans whitespace-nowrap hidden md:block mb-2">01 — STILLS</span>
-              <p className="font-sans text-lg leading-relaxed text-zinc-700">
+              <p className="font-sans text-base lg:text-lg leading-relaxed text-zinc-700">
                 The same design system, rebuilt for every location in minutes instead of days → so ten doors look like one brand, not ten different ones.
               </p>
             </BlurFade>

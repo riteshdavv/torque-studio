@@ -205,12 +205,12 @@ export function WorkflowSection({
                   `}
                 />
 
-                <div className="relative flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-8">
+                <div className="relative flex flex-col md:flex-row md:items-center justify-between gap-2 md:gap-4">
                   <div className="flex items-center gap-6 md:gap-12">
                     {/* Subtitle / Phase */}
                     <span
                       className={`
-                        text-sm font-sans tracking-[0.2em] uppercase transition-all duration-300 ease-out min-w-[100px]
+                        text-xs lg:text-sm font-sans tracking-[0.2em] uppercase transition-all duration-300 ease-out min-w-[100px]
                         ${hoveredIndex === index ? "text-white" : "text-zinc-500"}
                       `}
                     >
@@ -219,7 +219,7 @@ export function WorkflowSection({
 
                     {/* Title with animated underline */}
                     <div className="inline-flex items-center gap-4">
-                      <h3 className="text-white font-serif text-2xl md:text-5xl tracking-tight uppercase">
+                      <h3 className="text-white font-serif text-[1.25rem] md:text-4xl lg:text-5xl tracking-tight uppercase">
                         <span className="relative inline-block">
                           {entry.title}
                           {/* Animated underline */}
