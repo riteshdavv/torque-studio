@@ -33,7 +33,7 @@ export function FooterSection() {
     const tween = gsap.from(logotype, {
       scale: 0.92,
       opacity: 0.4,
-      y: -200, // starts 60px below, animates up to its natural position
+      y: 60, // starts 60px below, animates up to its natural position
       ease: "none",
       scrollTrigger: {
         trigger: logotype,
@@ -60,10 +60,10 @@ export function FooterSection() {
       </div>
 
       <div className="w-full flex flex-col relative z-10">
-        <div className="flex justify-between overflow-hidden px-6 md:px-0">
+        <div className="flex justify-between overflow-x-clip px-6 md:px-0">
           <h2
             ref={logotypeRef}
-            className="font-serif text-[4rem] sm:text-[6rem] md:text-[10rem] lg:text-[14rem] xl:text-[18rem] leading-[0.75] tracking-tighter uppercase mb-8 md:mb-16 origin-bottom-left"
+            className="font-serif text-[4rem] sm:text-[6rem] md:text-[10rem] lg:text-[14rem] xl:text-[18rem] leading-[0.75] tracking-tighter uppercase mb-20 sm:mb-24 md:mb-20 lg:mb-28 xl:mb-32 origin-bottom-left"
           >
             TORQUE.
           </h2>
