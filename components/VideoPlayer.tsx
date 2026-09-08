@@ -73,7 +73,8 @@ const HairlineSlider = ({
     );
 };
 
-const VideoPlayer = ({ src }: { src: string }) => {
+const VideoPlayer = ({ src, poster }: { src: string; poster?: string }) => {
+    const containerRef = useRef<HTMLDivElement>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [isMuted, setIsMuted] = useState(false);
@@ -81,6 +82,25 @@ const VideoPlayer = ({ src }: { src: string }) => {
     const [progress, setProgress] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
+    const [isInView, setIsInView] = useState(false);
+
+    useEffect(() => {
+        const target = containerRef.current;
+        if (!target) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsInView(true);
+                    observer.disconnect();
+                }
+            },
+            { rootMargin: "400px" }
+        );
+
+        observer.observe(target);
+        return () => observer.disconnect();
+    }, []);
 
     // Fallback: if metadata was already available before this
     // component's listener attached (fast/cached loads), grab it directly.
@@ -89,16 +109,28 @@ const VideoPlayer = ({ src }: { src: string }) => {
         if (video && video.readyState >= 1 && video.duration) {
             setDuration(video.duration);
         }
-    }, []);
+    }, [isInView]);
 
-    const togglePlay = () => {
-        if (videoRef.current) {
-            if (isPlaying) {
-                videoRef.current.pause();
-            } else {
-                videoRef.current.play();
+    const togglePlay = async () => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        if (!isInView) {
+            setIsInView(true);
+            video.src = src;
+            video.load();
+        }
+
+        if (isPlaying) {
+            video.pause();
+            setIsPlaying(false);
+        } else {
+            try {
+                await video.play();
+                setIsPlaying(true);
+            } catch {
+                // Autoplay/play request was interrupted or prevented
             }
-            setIsPlaying(!isPlaying);
         }
     };
 
@@ -146,6 +178,7 @@ const VideoPlayer = ({ src }: { src: string }) => {
 
     return (
         <motion.div
+            ref={containerRef}
             className="relative group w-full max-w-4xl mx-auto overflow-hidden bg-black"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -178,11 +211,14 @@ const VideoPlayer = ({ src }: { src: string }) => {
             <video
                 ref={videoRef}
                 className="w-full block"
+                preload={isInView ? "metadata" : "none"}
+                poster={poster}
+                playsInline
                 onLoadedMetadata={handleLoadedMetadata}
                 onDurationChange={handleLoadedMetadata}
                 onTimeUpdate={handleTimeUpdate}
                 onEnded={handleEnded}
-                src={src}
+                src={isInView ? src : undefined}
                 onClick={togglePlay}
                 data-cursor="hand"
             />

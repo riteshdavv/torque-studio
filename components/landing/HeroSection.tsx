@@ -7,14 +7,15 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { BlurFade } from "@/components/BlurFade"
 import { ImageTrail } from "@/components/ImageTrail"
 import { useLenis } from "@/components/SmoothScrollProvider";
+import { BLUR } from "@/lib/blurPlaceholders"
 
 gsap.registerPlugin(ScrollTrigger)
 
-// All images available in /public (excluding hero.png which is the background)
+// WebP versions — converted from PNG for ~95% smaller file size
 const trailImages = [
-  "/craft1.png",
-  "/craft2.png",
-  "/craft3.png",
+  "/craft1.webp",
+  "/craft2.webp",
+  "/craft3.webp",
 ]
 
 export function HeroSection() {
@@ -69,10 +70,13 @@ export function HeroSection() {
       <BlurFade duration={1.8} className="absolute inset-0 z-0" yOffset={0} blur="0px">
         <Image
           ref={heroImageRef}
-          src="/hero.png"
+          src="/hero.webp"
           alt="Hero Background"
           fill
           priority
+          sizes="100vw"
+          placeholder="blur"
+          blurDataURL={BLUR.hero}
           className="object-cover scale-[1.08] object-center"
         />
         {/* Flat black overlay */}
@@ -126,6 +130,8 @@ export function HeroSection() {
                       height={128}
                       className="w-full h-full object-cover"
                       draggable={false}
+                      placeholder="blur"
+                      blurDataURL={BLUR.craft1}
                     />
                   </div>
                 ))}

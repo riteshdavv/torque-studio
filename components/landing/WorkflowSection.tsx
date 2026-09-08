@@ -14,42 +14,41 @@ export type WorkflowEntry = {
 };
 
 const trailImages = [
-  "/craft1.png",
-  "/craft2.png",
-  "/craft3.png",
+  "/craft1.webp",
+  "/craft2.webp",
+  "/craft3.webp",
 ]
-
 
 export const defaultEntries: WorkflowEntry[] = [
   {
     title: "KICKOFF.",
     subtitle: "PHASE 01",
     description: "We learn the brand, the market, and what on-brand actually means for you.",
-    image: "/kickoff.jpeg"
+    image: "/kickoff.webp"
   },
   {
     title: "PLAN.",
     subtitle: "PHASE 02",
     description: "Executing the plan with precision. We capture both macro and micro details.",
-    image: "/plan.jpeg"
+    image: "/plan.webp"
   },
   {
     title: "PRODUCTION.",
     subtitle: "PHASE 03",
     description: "Design and edits happen on our end, not yours.",
-    image: "/production.jpeg"
+    image: "/production.webp"
   },
   {
     title: "REVIEW.",
     subtitle: "PHASE 04",
     description: "Color grading, retouching, and assembling the final narrative.",
-    image: "/review.jpeg"
+    image: "/review.webp"
   },
   {
     title: "DELIVERY.",
     subtitle: "PHASE 05",
     description: "Assets are handed over, formatted perfectly for all digital channels.",
-    image: "/delivery.jpeg"
+    image: "/delivery.webp"
   },
 ];
 

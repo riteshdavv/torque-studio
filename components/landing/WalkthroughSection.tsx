@@ -23,7 +23,7 @@ export function WalkthroughSection() {
 
           {/* Center Image */}
           <div className="w-full lg:w-3/5 relative overflow-hidden order-first lg:order-none mb-8 lg:mb-0">
-            <VideoPlayer src="/videos/realestate.mp4"/>
+            <VideoPlayer src="/videos/realestate.mp4" poster="/walkthrough.webp"/>
           </div>
           
           {/* Right small text */}

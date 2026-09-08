@@ -18,6 +18,7 @@ export function FifteenMinutesSection() {
   const rootRef = useRef<HTMLDivElement>(null) // Calendly needs a portal root
   const [mounted, setMounted] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [shouldLoadCalendly, setShouldLoadCalendly] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -128,7 +129,11 @@ export function FifteenMinutesSection() {
       <div className="flex items-center justify-center w-full mt-16">
         <div className="flex flex-col items-center">
           <button
-            onClick={() => setIsModalOpen(true)}
+            onMouseEnter={() => setShouldLoadCalendly(true)}
+            onClick={() => {
+              setShouldLoadCalendly(true)
+              setIsModalOpen(true)
+            }}
             className="bg-zinc-800 text-white px-12 py-4 text-lg tracking-[0.2em] uppercase font-sans hover:bg-black transition-colors mb-6"
           >
             BOOK A CALL →
@@ -171,14 +176,12 @@ export function FifteenMinutesSection() {
               </svg>
             </button>
             
-            {/* 
-              We load the InlineWidget in the background so the iframe connects, 
-              downloads resources, and parses before the user clicks.
-            */}
-            <InlineWidget
-              url="https://calendly.com/ritesh-torquestudio/15min"
-              styles={{ height: "100%", width: "100%" }}
-            />
+            {shouldLoadCalendly && (
+              <InlineWidget
+                url="https://calendly.com/ritesh-torquestudio/15min"
+                styles={{ height: "100%", width: "100%" }}
+              />
+            )}
           </div>
         </div>
       )}

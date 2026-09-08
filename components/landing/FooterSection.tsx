@@ -3,8 +3,13 @@ import Link from "next/link"
 import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import OrbitGallery from "./OrbitGallery"
+import dynamic from "next/dynamic"
 import { useLenis } from "@/components/SmoothScrollProvider";
+
+const OrbitGallery = dynamic(() => import("./OrbitGallery"), {
+  ssr: false,
+  loading: () => <div className="w-full h-full" />,
+});
 
 gsap.registerPlugin(ScrollTrigger)
 

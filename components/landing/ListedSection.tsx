@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { BlurFade } from "@/components/BlurFade"
+import { BLUR } from "@/lib/blurPlaceholders"
 
 export function ListedSection() {
   return (
@@ -35,13 +36,13 @@ export function ListedSection() {
       <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-12 gap-4 reveal-grid">
         {/* Images */}
         <div className="md:col-span-5 h-[250px] md:h-[450px] relative overflow-hidden reveal-image-container">
-          <Image src="/listed1.png" alt="Listed 1" fill className="object-cover" />
+          <Image src="/listed1.webp" alt="Listed 1" fill sizes="(max-width: 768px) 100vw, 42vw" className="object-cover" placeholder="blur" blurDataURL={BLUR.listed1} />
         </div>
         <div className="md:col-span-5 h-[250px] md:h-[450px] relative overflow-hidden">
-          <Image src="/listed2.png" alt="Listed 2" fill className="object-cover" />
+          <Image src="/listed2.webp" alt="Listed 2" fill sizes="(max-width: 768px) 100vw, 42vw" className="object-cover" placeholder="blur" blurDataURL={BLUR.listed2} />
         </div>
         <div className="md:col-span-2 h-[250px] md:h-[450px] relative overflow-hidden reveal-image-container">
-          <Image src="/listed3.png" alt="Listed 3" fill className="object-cover" />
+          <Image src="/listed3.webp" alt="Listed 3" fill sizes="(max-width: 768px) 100vw, 16vw" className="object-cover" placeholder="blur" blurDataURL={BLUR.listed3} />
         </div>
       </div>
     </section>

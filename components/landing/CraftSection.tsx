@@ -1,23 +1,28 @@
 "use client"
 import { useRef } from "react"
 import { useScroll } from "framer-motion"
-import FiniteGallery from "./Gallery"
+import dynamic from "next/dynamic"
 import { useSpring } from "framer-motion"
 import { BlurFade } from "@/components/BlurFade"
 
+const FiniteGallery = dynamic(() => import("./Gallery"), {
+  ssr: false,
+  loading: () => <div className="w-full h-full bg-transparent" />,
+})
+
 const GALLERY_IMAGES = [
-  "/craft1.png",
-  "/craft2.png",
-  "/craft3.png",
-  "/craft4.png",
-  "/craft5.png",
-  "/craft6.png",
-  "/craft7.png",
-  "/craft8.png",
-  "/craft9.png",
-  "/craft10.png",
-  "/craft11.png",
-  "/craft12.png",
+  "/craft1.webp",
+  "/craft2.webp",
+  "/craft3.webp",
+  "/craft4.webp",
+  "/craft5.webp",
+  "/craft6.webp",
+  "/craft7.webp",
+  "/craft8.webp",
+  "/craft9.webp",
+  "/craft10.webp",
+  "/craft11.webp",
+  "/craft12.webp",
 ]
 
 export function CraftSection() {

@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { BlurFade } from "@/components/BlurFade"
+import { BLUR } from "@/lib/blurPlaceholders"
 
 export function NeverStaleSection() {
   return (
@@ -26,15 +27,16 @@ export function NeverStaleSection() {
       <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-12 gap-4 reveal-grid">
         {/* Images */}
         <div className="md:col-span-5 h-[250px] md:h-[450px] relative overflow-hidden reveal-image-container">
-          <Image src="/neverstale1.png" alt="Never Stale 1" fill className="object-cover" />
+          <Image src="/neverstale1.webp" alt="Never Stale 1" fill sizes="(max-width: 768px) 100vw, 42vw" className="object-cover" placeholder="blur" blurDataURL={BLUR.neverstale1} />
         </div>
         <div className="md:col-span-5 h-[250px] md:h-[450px] relative overflow-hidden">
-          <Image src="/neverstale2.png" alt="Never Stale 2" fill className="object-cover" />
+          <Image src="/neverstale2.webp" alt="Never Stale 2" fill sizes="(max-width: 768px) 100vw, 42vw" className="object-cover" placeholder="blur" blurDataURL={BLUR.neverstale2} />
         </div>
         <div className="md:col-span-2 h-[250px] md:h-[450px] relative overflow-hidden reveal-image-container">
-          <Image src="/neverstale3.png" alt="Never Stale 3" fill className="object-cover" />
+          <Image src="/neverstale3.webp" alt="Never Stale 3" fill sizes="(max-width: 768px) 100vw, 16vw" className="object-cover" placeholder="blur" blurDataURL={BLUR.neverstale3} />
         </div>
       </div>
     </section>
   )
 }
+

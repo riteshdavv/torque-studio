@@ -1,4 +1,5 @@
 import { HeroSection } from "@/components/landing/HeroSection"
+import { DirectOfferBlock } from "@/components/landing/DirectOfferBlock"
 import { CampaignBanner } from "@/components/landing/CampaignBanner"
 import { FranchiseRealEstate } from "@/components/landing/FranchiseRealEstate"
 import { ListedSection } from "@/components/landing/ListedSection"
@@ -19,6 +20,7 @@ export default function Page() {
     <main className="flex min-h-screen flex-col items-center bg-[#0a0a0a]">
       <GridRevealClient />
       <HeroSection />
+      <DirectOfferBlock />
       <CampaignBanner />
       <FranchiseRealEstate />
       <ListedSection />

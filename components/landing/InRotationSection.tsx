@@ -24,7 +24,7 @@ export function InRotationSection() {
 
           {/* Center Image */}
           <div className="w-full lg:w-3/5 relative overflow-hidden order-first lg:order-none mb-8 lg:mb-0">
-            <VideoPlayer src="/videos/franchise.mp4"/>
+            <VideoPlayer src="/videos/franchise.mp4" poster="/inrotation.webp"/>
           </div>
 
           {/* Right small text */}

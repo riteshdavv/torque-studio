@@ -1,0 +1,28 @@
+// Auto-generated blur placeholders — 8×8 WebP thumbnails encoded as base64.
+// Used with Next.js <Image placeholder="blur" blurDataURL={...} />
+
+export const BLUR: Record<string, string> = {
+  hero: "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAQCdASoIAAgABUB8JYgCdADcWGcljQAA/s9+HJMgB49x8ugZk7x4xXJ9wGT2UsTmfChgAAA=",
+  listed1: "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAAAQAgCdASoIAAgABUB8JQBOgCPqVfeNS3wAAP2j6tbDqSMreSufTQ6A9GodnvUdgJQAAA==",
+  listed2: "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAQCdASoIAAgABUB8JYwCdADdsjsQYAD+qlQaUYC9K9k9m5+y/WdA4GV24YkZgAA=",
+  listed3: "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADQAQCdASoIAAgABUB8JYwCdADzcbGhgAD+7xexZ4JRbSkCBXlzn8XBkgjKUz1tB8W8AAAA",
+  sold1: "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoIAAgABUB8JYwCdAD0rBqYAADOPsgHKnJbkSKSVJq+NVPyDX3gi4AA",
+  sold2: "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAQCdASoIAAgABUB8JYwCdAEQ/A5pAAD+2T64JcspzfxoFswxzkVRXJyR+ZWAAAA=",
+  sold3: "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoIAAgABUB8JZQCdAEPD6nFAAD+6d3S6OgfWz57NWKRfeEA6gAAAA==",
+  neverstale1: "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAQCdASoIAAgABUB8JQBOgCHhV0yAAAD+6f8BN+S0Mb7M8KgrLk5nDIhwCzvxoAA=",
+  neverstale2: "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACwAQCdASoIAAgABUB8JQBOgBtjjPSAAP14rUJVoEbiRs3mDvgceB+/Dz5SLOasmUC92VQA",
+  neverstale3: "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAADQAQCdASoIAAgABUB8JZQC7AEQ/hUR0AD+7txpnOHqTu0VBuCrVUCKeAA=",
+  onesystem1: "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADQAQCdASoIAAgABUB8JZACdAEO4c/cAAD+Gddd256+ofaYmss3rkPJMWLSXI+kTHbILJ3iAAA=",
+  onesystem2: "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoIAAgABUB8JQBOgB6S/dC2AAD+oxyvZjWtk0F7+45nP1bR74da9QeHauUAAA==",
+  onesystem3: "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoIAAgABUB8JagCdAD5ek+QIAD2v14j9GfQShHNtVPYUPadQJT7cLy/1B9HJuop8rgAAA==",
+  walkthrough: "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADwAQCdASoIAAgABUB8JQBOgCKUOg7T6kAA/OTPYCDnvobYDdslwc4uUYRtqAAA",
+  inrotation: "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAQCdASoIAAgABUB8JaQAAudu3yPAAP7vjVHZ/m0I0pwa9PAPiQAA",
+  craft1: "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoIAAgABUB8JYwCdADyhKYAAP7RpReQm5B4+gZoLBdeuTlu1OjQAA==",
+  craft2: "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACwAQCdASoIAAgABUB8JQBOgB6SJYuQAP6rf2NF/hlnmOLZX6impCU03P7lU+nxkZBLS8AA",
+  craft3: "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACQAQCdASoIAAgABUB8JQBOgB5u84gA/qZ5pEO5Ep2aGaZP7Fsxn1Y3BWqgEhNNac9SJsAA",
+  kickoff: "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADQAQCdASoIAAgABUB8JQBOgCLL/n6mAAD+haSdAnyDdlch0KfKlOQO511IHyfCIlvPbuYAAAA=",
+  plan: "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAACwAQCdASoIAAgABUB8JQBOgB6UI3PQAP38hvgmhG6EiG+H+E7GFnK9gT1cUt8/dBERId7k5H6vAAAA",
+  production: "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADwAQCdASoIAAgABUB8JYgCdAD0S/BIcAAA/tmm+92lowCaZYZNcM7NYoHqn0CDUqu5P9RS39QuAAAA",
+  review: "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAQCdASoIAAgABUB8JQBOgB5vdqIAAP5H0LOFl8RlgsjFM+kWfA5FHOAtTfoKWgAgAA==",
+  delivery: "data:image/webp;base64,UklGRi4AAABXRUJQVlA4ICIAAACQAQCdASoIAAgABUB8JZwAAuaaUIAA/s2/E8WxgEcKAAAA",
+};
