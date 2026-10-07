@@ -86,12 +86,15 @@ export function HeroSection() {
       {/* Navigation */}
       <BlurFade delay={0.3} yOffset={-24} className="relative z-20 transition ease-out">
         <header className="flex w-full items-center justify-between px-6 pt-3 pb-8 md:pb-14 md:px-24">
-          <div className="text-lg md:text-2xl font-serif">TORQUE.</div>
+          <div className="flex items-center gap-2 text-lg md:text-2xl font-serif">
+            <img src="/Logo Draft white.png" alt="Torque Logo" className="h-[1.25em] w-auto object-contain" />
+            TORQUE.
+          </div>
 
           <nav className="hidden md:flex items-center gap-12 text-xs lg:text-[14px] uppercase tracking-[0.12em] text-zinc-300 font-sans">
-            <Link data-cursor="hand" href="#work" onClick={(e) => handleNavClick(e, "#work")} className="hover:text-white transition-colors">01 / WORK</Link>
-            <Link data-cursor="hand" href="#process" onClick={(e) => handleNavClick(e, "#process")} className="hover:text-white transition-colors">02 / PROCESS</Link>
-            <Link data-cursor="hand" href="#about" onClick={(e) => handleNavClick(e, "#about")} className="hover:text-white transition-colors">03 / ABOUT</Link>
+            <Link data-cursor="hand" href="#work" onClick={(e) => handleNavClick(e, "#work")} className="hover:text-white transition-colors">WORK</Link>
+            <Link data-cursor="hand" href="#process" onClick={(e) => handleNavClick(e, "#process")} className="hover:text-white transition-colors">PROCESS</Link>
+            <Link data-cursor="hand" href="#about" onClick={(e) => handleNavClick(e, "#about")} className="hover:text-white transition-colors">ABOUT</Link>
             <Link href="#contact" onClick={(e) => handleNavClick(e, "#contact")} className="border border-zinc-300 text-zinc-300 px-5 py-2.5 hover:bg-white hover:text-black transition ease-in-out ml-4">
               CONTACT
             </Link>

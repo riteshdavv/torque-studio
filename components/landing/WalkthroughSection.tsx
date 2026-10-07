@@ -1,6 +1,5 @@
 import Image from "next/image"
 import { BlurFade } from "@/components/BlurFade"
-import VideoPlayer from "@/components/VideoPlayer"
 
 export function WalkthroughSection() {
   return (
@@ -23,7 +22,7 @@ export function WalkthroughSection() {
 
           {/* Center Image */}
           <div className="w-full lg:w-3/5 relative overflow-hidden order-first lg:order-none mb-8 lg:mb-0">
-            <VideoPlayer src="/videos/realestate.mp4" poster="/walkthrough.webp"/>
+            <Image src="/walkthrough.png" alt="Walkthrough" width={1200} height={800} className="w-full h-auto object-cover" />
           </div>
           
           {/* Right small text */}

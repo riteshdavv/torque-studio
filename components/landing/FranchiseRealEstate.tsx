@@ -56,26 +56,7 @@ export function FranchiseRealEstate() {
       <div className="flex-1 flex flex-col pl-0 md:pl-10">
         <BlurFade delay={0.25} inView>
           <div className="text-lg tracking-widest text-zinc-800 uppercase mb-8 font-sans">
-            SECTOR 01 // FRANCHISE
-          </div>
-        </BlurFade>
-        
-        <h2 className="sector-wordmark font-serif text-5xl md:text-[7rem] lg:text-[9rem] xl:text-[11rem] leading-[0.85] tracking-tighter uppercase mb-8 md:mb-12">
-          <span className="block">FRAN</span>
-          <span className="italic block">CHISE.</span>
-        </h2>
-        
-        <BlurFade delay={0.25 * 3} inView>
-          <p className="font-sans text-md md:text-xl leading-relaxed text-zinc-600 max-w-md">
-            One brand system, deployed cleanly across every location → so a five-door brand and a fifty-door brand run the same playbook without rebuilding it each time.
-          </p>
-        </BlurFade>
-      </div>
-
-      <div className="flex-1 flex flex-col">
-        <BlurFade delay={0.25} inView>
-          <div className="text-lg tracking-widest text-zinc-800 uppercase mb-8 font-sans">
-            SECTOR 02 // REAL ESTATE
+            SECTOR 01 // REAL ESTATE
           </div>
         </BlurFade>
         
@@ -87,6 +68,25 @@ export function FranchiseRealEstate() {
         <BlurFade delay={0.25 * 3} inView>
           <p className="font-sans text-md md:text-xl leading-relaxed text-zinc-600 max-w-md">
             Every listing shoot turned into a full week of content → carousels, video, and agent branding that makes a property look like the best one on the market.
+          </p>
+        </BlurFade>
+      </div>
+
+      <div className="flex-1 flex flex-col">
+        <BlurFade delay={0.25} inView>
+          <div className="text-lg tracking-widest text-zinc-800 uppercase mb-8 font-sans">
+            SECTOR 02 // FRANCHISE
+          </div>
+        </BlurFade>
+        
+        <h2 className="sector-wordmark font-serif text-5xl md:text-[7rem] lg:text-[9rem] xl:text-[11rem] leading-[0.85] tracking-tighter uppercase mb-8 md:mb-12">
+          <span className="block">FRAN</span>
+          <span className="italic block">CHISE.</span>
+        </h2>
+        
+        <BlurFade delay={0.25 * 3} inView>
+          <p className="font-sans text-md md:text-xl leading-relaxed text-zinc-600 max-w-md">
+            One brand system, deployed cleanly across every location → so a five-door brand and a fifty-door brand run the same playbook without rebuilding it each time.
           </p>
         </BlurFade>
       </div>

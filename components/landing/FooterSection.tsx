@@ -65,27 +65,39 @@ export function FooterSection() {
       </div>
 
       <div className="w-full flex flex-col relative z-10">
-        <div className="flex justify-between overflow-x-clip px-6 md:px-0">
+        <div className="flex justify-center overflow-x-clip px-6 md:px-24 w-full">
           <h2
             ref={logotypeRef}
-            className="font-serif text-[4rem] sm:text-[6rem] md:text-[10rem] lg:text-[14rem] xl:text-[18rem] leading-[0.75] tracking-tighter uppercase mb-20 sm:mb-24 md:mb-20 lg:mb-28 xl:mb-32 origin-bottom-left"
+            className="font-serif text-[4rem] sm:text-[6rem] md:text-[10rem] lg:text-[14rem] xl:text-[18rem] leading-[0.75] tracking-tighter uppercase mb-20 sm:mb-24 md:mb-20 lg:mb-28 xl:mb-32 origin-bottom flex items-center justify-center gap-[0.15em] w-full text-center"
           >
+            <img
+              src="/Logo Draft white.png"
+              alt="Torque Logo"
+              className="h-[0.9em] w-auto object-contain flex-shrink-0"
+            />
             TORQUE.
           </h2>
         </div>
       </div>
-      <div className="w-full flex flex-col relative z-10">
-        <div className="w-full flex flex-col md:flex-row justify-between gap-8 md:gap-4 px-6 md:px-12">
-          <p className="pl-0 md:pl-12 font-sans text-sm md:text-md uppercase tracking-[0.15em] leading-8 text-zinc-600 text-center md:text-left">
-            Creative and content production for multi-location brands and real estate teams .
-          </p>
-          <div className="pr-0 md:pr-12 flex flex-col text-center md:text-right gap-4 md:gap-2 text-sm md:text-md tracking-widest text-zinc-500 uppercase font-sans justify-center">
-            <div className="flex gap-4 md:gap-8 justify-center md:justify-end">
+      <div className="w-full flex flex-col relative z-10 px-6 md:px-24">
+        <div className="w-full flex flex-col md:flex-row justify-between items-center md:items-end gap-12 md:gap-4">
+          <div className="flex flex-col items-center md:items-start gap-6 md:gap-8 max-w-md lg:max-w-lg">
+            <p className="font-sans text-sm md:text-base uppercase tracking-[0.15em] leading-8 text-zinc-600 text-center md:text-left">
+              Creative and content production for multi-location brands and real estate teams.
+            </p>
+            <div className="flex flex-wrap justify-center md:justify-start gap-6 font-sans text-xs md:text-sm tracking-widest text-zinc-500 uppercase">
+              <Link data-cursor="hand" href="https://www.linkedin.com/company/torquestudio" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</Link>
+              <Link data-cursor="hand" href="https://www.instagram.com/torquestudio_co/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</Link>
+              <Link data-cursor="hand" href="https://x.com/torquestudio_co" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">X</Link>
+            </div>
+          </div>
+          <div className="flex flex-col text-center md:text-right gap-6 md:gap-4 text-sm md:text-base tracking-widest text-zinc-500 uppercase font-sans justify-center">
+            <div className="flex flex-wrap gap-6 md:gap-8 justify-center md:justify-end">
               <Link data-cursor="hand" href="#work" onClick={(e) => handleNavClick(e, "#work")} className="hover:text-white transition-colors">WORK</Link>
               <Link data-cursor="hand" href="#process" onClick={(e) => handleNavClick(e, "#process")} className="hover:text-white transition-colors">PROCESS</Link>
               <Link data-cursor="hand" href="#about" onClick={(e) => handleNavClick(e, "#about")} className="hover:text-white transition-colors">ABOUT</Link>
             </div>
-            <div className="">© 2026</div>
+            <div className="text-zinc-600 text-xs md:text-sm">© 2026</div>
           </div>
         </div>
       </div>

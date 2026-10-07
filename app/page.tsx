@@ -1,5 +1,6 @@
 import { HeroSection } from "@/components/landing/HeroSection"
 import { DirectOfferBlock } from "@/components/landing/DirectOfferBlock"
+import { TorqueVideoSection } from "@/components/landing/TorqueVideoSection"
 import { CampaignBanner } from "@/components/landing/CampaignBanner"
 import { FranchiseRealEstate } from "@/components/landing/FranchiseRealEstate"
 import { ListedSection } from "@/components/landing/ListedSection"
@@ -21,6 +22,7 @@ export default function Page() {
       <GridRevealClient />
       <HeroSection />
       <DirectOfferBlock />
+      <TorqueVideoSection />
       <CampaignBanner />
       <FranchiseRealEstate />
       <ListedSection />

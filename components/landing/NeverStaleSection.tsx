@@ -17,8 +17,8 @@ export function NeverStaleSection() {
           </div>
           
           <BlurFade delay={0.25 * 2} inView>
-            <h2 className="font-serif text-5xl md:text-[8rem] leading-[0.8] tracking-tighter uppercase">
-              <span className="italic">NEVER &nbsp;STALE.</span>
+            <h2 className="font-serif text-[3.5rem] sm:text-5xl md:text-[4.5rem] lg:text-[6.5rem] xl:text-[8rem] leading-[0.8] tracking-tighter uppercase shrink-0">
+              <span className="italic">NEVER STALE.</span>
             </h2>
           </BlurFade>
         </div>
