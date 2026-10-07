@@ -71,7 +71,7 @@ export function FooterSection() {
             className="font-serif text-[4rem] sm:text-[6rem] md:text-[10rem] lg:text-[14rem] xl:text-[18rem] leading-[0.75] tracking-tighter uppercase mb-20 sm:mb-24 md:mb-20 lg:mb-28 xl:mb-32 origin-bottom flex items-center justify-center gap-[0.15em] w-full text-center"
           >
             <img
-              src="/Logo Draft white.png"
+              src="/logowhite.webp"
               alt="Torque Logo"
               className="h-[0.9em] w-auto object-contain flex-shrink-0"
             />

@@ -70,13 +70,11 @@ export function HeroSection() {
       <BlurFade duration={1.8} className="absolute inset-0 z-0" yOffset={0} blur="0px">
         <Image
           ref={heroImageRef}
-          src="/hero.webp"
+          src="/heroimage.webp"
           alt="Hero Background"
           fill
           priority
           sizes="100vw"
-          placeholder="blur"
-          blurDataURL={BLUR.hero}
           className="object-cover scale-[1.08] object-center"
         />
         {/* Flat black overlay */}
@@ -87,7 +85,7 @@ export function HeroSection() {
       <BlurFade delay={0.3} yOffset={-24} className="relative z-20 transition ease-out">
         <header className="flex w-full items-center justify-between px-6 pt-3 pb-8 md:pb-14 md:px-24">
           <div className="flex items-center gap-2 text-lg md:text-2xl font-serif">
-            <img src="/Logo Draft white.png" alt="Torque Logo" className="h-[1.25em] w-auto object-contain" />
+            <img src="/logowhite.webp" alt="Torque Logo" className="h-[1.25em] w-auto object-contain" />
             TORQUE.
           </div>
 

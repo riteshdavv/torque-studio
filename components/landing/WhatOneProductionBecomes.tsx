@@ -23,7 +23,7 @@ export function WhatOneProductionBecomes() {
           <div className="flex flex-col gap-6">
             <p className="font-sans text-sm tracking-[0.15em] text-zinc-500 uppercase font-bold">THE ORIGINAL INPUT</p>
             <div className="w-full h-[40vh] md:h-[65vh] relative overflow-hidden bg-zinc-900 border border-zinc-800">
-              <Image src="/originalinput.png" alt="Original Input" fill className="object-cover" />
+              <Image src="/originalinput.webp" alt="Original Input" fill className="object-cover" />
             </div>
           </div>
         </BlurFade>
@@ -35,12 +35,12 @@ export function WhatOneProductionBecomes() {
           </BlurFade>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24 w-full">
-            <OutputBlock number="01" title="HERO VIDEO" image="/herovideo.png" />
-            <OutputBlock number="02" title="SHORT-FORM CUTS" image="/shortformcuts.png" />
-            <OutputBlock number="03" title="CAROUSEL" image="/carousel.png" />
-            <OutputBlock number="04" title="SOCIAL ASSETS" image="/socialasset.png" />
-            <OutputBlock number="05" title="AD CREATIVE" image="/ad.png" objectPosition="object-top" />
-            <OutputBlock number="06" title="AGENT CONTENT" image="/agentcontent.png" />
+            <OutputBlock number="01" title="HERO VIDEO" image="/herovideo.webp" />
+            <OutputBlock number="02" title="SHORT-FORM CUTS" image="/shortformcuts.webp" />
+            <OutputBlock number="03" title="CAROUSEL" image="/carousel.webp" />
+            <OutputBlock number="04" title="SOCIAL ASSETS" image="/socialasset.webp" />
+            <OutputBlock number="05" title="AD CREATIVE" image="/ad.webp" objectPosition="object-top" />
+            <OutputBlock number="06" title="AGENT CONTENT" image="/agentcontent.webp" />
           </div>
         </div>
 
