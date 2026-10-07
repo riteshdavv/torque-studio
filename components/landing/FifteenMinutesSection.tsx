@@ -104,24 +104,17 @@ export function FifteenMinutesSection() {
         */}
         <h2
           ref={headlineRef}
-          className="font-serif text-[4rem] md:text-[8rem] leading-[1] tracking-tighter uppercase mb-16 text-center md:text-left"
+          className="font-serif text-[4rem] md:text-[6rem] lg:text-[7.5rem] leading-[0.95] tracking-tighter uppercase mb-16 text-center md:text-left"
         >
-          <span className="block text-zinc-900">FIFTEEN MINUTES.</span>
-          <span className="block italic">THAT&apos;S IT.</span>
+          <span className="block text-zinc-900">HAVE A SHOOT SITTING</span>
+          <span className="block italic">ON A DRIVE?</span>
         </h2>
 
-        <div className="mt-8 md:mt-16 max-w-[32rem] text-zinc-700 text-lg md:text-[1.4rem] leading-relaxed tracking-[0.1em] font-sans uppercase text-center md:text-right w-full md:w-auto md:ml-auto">
+        <div className="mt-8 md:mt-12 max-w-[32rem] text-zinc-700 text-lg md:text-[1.4rem] leading-relaxed tracking-[0.1em] font-sans uppercase text-center md:text-left w-full">
           <BlurFade delay={0.25 * 2} inView>
             <p>
-              Pick a slot and tell us what you&apos;re working on.
-            </p>
-          </BlurFade>
-        </div>
-        <div className="flex flex-col md:flex-row w-full justify-between items-start md:items-end gap-8 md:gap-12 mt-8 text-center md:text-left">
-          <BlurFade delay={0.25 * 3} inView>
-            <p className="font-sans text-base md:text-xl tracking-[0.02em] leading-relaxed text-zinc-700">
-              We&apos;ll tell you straight whether it&apos;s a fit → no deck, no pressure, no obligation.<br />
-              If your feed isn&apos;t where you want it yet, this is the fastest way to find out what fixing it actually looks like.
+              Send it over.<br/>
+              We&apos;ll show you what it could become.
             </p>
           </BlurFade>
         </div>
@@ -136,14 +129,11 @@ export function FifteenMinutesSection() {
             }}
             className="bg-zinc-800 text-white px-12 py-4 text-lg tracking-[0.2em] uppercase font-sans hover:bg-black transition-colors mb-6"
           >
-            BOOK A CALL →
+            START A PILOT &rarr;
           </button>
-          <Link
-            href="mailto:hello@torquestudio.co"
-            className="font-sans text-base md:text-lg py-4 tracking-widest text-zinc-600"
-          >
-            prefer email? hello@torquestudio.co
-          </Link>
+          <p className="font-sans text-sm md:text-base py-4 tracking-widest text-zinc-500 uppercase text-center max-w-base">
+            No deck. No long-term commitment.<br />No second shoot required.
+          </p>
         </div>
       </div>
 

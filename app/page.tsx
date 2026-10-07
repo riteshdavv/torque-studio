@@ -1,14 +1,11 @@
 import { HeroSection } from "@/components/landing/HeroSection"
 import { DirectOfferBlock } from "@/components/landing/DirectOfferBlock"
 import { TorqueVideoSection } from "@/components/landing/TorqueVideoSection"
-import { CampaignBanner } from "@/components/landing/CampaignBanner"
-import { FranchiseRealEstate } from "@/components/landing/FranchiseRealEstate"
-import { ListedSection } from "@/components/landing/ListedSection"
-import { WalkthroughSection } from "@/components/landing/WalkthroughSection"
-import { SoldSection } from "@/components/landing/SoldSection"
-import { OneSystemSection } from "@/components/landing/OneSystemSection"
-import { InRotationSection } from "@/components/landing/InRotationSection"
-import { NeverStaleSection } from "@/components/landing/NeverStaleSection"
+import { TheProblemSection } from "@/components/landing/TheProblemSection"
+import { TheSystemSection } from "@/components/landing/TheSystemSection"
+import { WhatOneProductionBecomes } from "@/components/landing/WhatOneProductionBecomes"
+import { SectorsSection } from "@/components/landing/SectorsSection"
+import { NoSecondShootSection } from "@/components/landing/NoSecondShootSection"
 import { WorkflowSection } from "@/components/landing/WorkflowSection"
 import { CraftSection } from "@/components/landing/CraftSection"
 import { FifteenMinutesSection } from "@/components/landing/FifteenMinutesSection"
@@ -23,14 +20,11 @@ export default function Page() {
       <HeroSection />
       <DirectOfferBlock />
       <TorqueVideoSection />
-      <CampaignBanner />
-      <FranchiseRealEstate />
-      <ListedSection />
-      <WalkthroughSection />
-      <SoldSection />
-      <OneSystemSection />
-      <InRotationSection />
-      <NeverStaleSection />
+      <TheProblemSection />
+      <TheSystemSection />
+      <WhatOneProductionBecomes />
+      <SectorsSection />
+      <NoSecondShootSection />
       <WorkflowSection />
       <CraftSection />
       <PricingSection />

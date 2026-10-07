@@ -45,24 +45,25 @@ export function CraftSection() {
     <section id="about" className="w-full bg-[#f8f8f8] text-black pt-16 md:pt-32 flex flex-col items-center overflow-hidden">
       <div className="max-w-5xl w-full flex flex-col items-center px-6 md:px-12 text-center md:text-left">
         <BlurFade delay={0.25} inView>
-          <h2 className="font-serif text-4xl sm:text-5xl md:text-8xl uppercase mb-8 font-normal italic text-center md:text-left">
-            CRAFT, at SCALE.
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl uppercase mb-8 font-normal text-center md:text-left leading-[0.9]">
+            <span className="block italic">BUILT FROM WHAT</span>
+            <span className="block">YOU ALREADY HAVE.</span>
           </h2>
         </BlurFade>
-        <div className="mt-4">
+        <div className="mt-8 flex flex-col gap-6">
           <BlurFade delay={0.25 * 2} inView>
-            <p className='font-sans text-xl md:text-[1.3rem] text-zinc-700 max-w-2xl text-left'>
-              High-volume production is often mistaken for mediocrity.
+            <p className='font-sans text-xl md:text-2xl text-zinc-800 max-w-2xl text-left uppercase'>
+              You don&apos;t need another shoot every time you need another piece of content.
             </p>
           </BlurFade>
           <BlurFade delay={0.25 * 3} inView>
-            <p className='mt-6 font-serif text-xl md:text-2xl text-zinc-900 max-w-xl text-left uppercase tracking-[0.05em]'>
-              We reject that.
+            <p className='font-sans text-lg md:text-xl text-zinc-600 max-w-2xl text-left leading-relaxed'>
+              Torque works from the production you&apos;ve already invested in — turning existing photos and footage into new formats, campaigns and content.
             </p>
           </BlurFade>
           <BlurFade delay={0.25 * 4} inView>
-            <p className='font-sans text-xl md:text-[1.3rem] text-zinc-700 max-w-3xl text-left mt-6'>
-              A single luxury listing in a national franchise rollout gets the same obsession over detail → nothing goes out that hasn&apos;t been looked at twice.
+            <p className='font-serif italic text-2xl md:text-4xl text-zinc-900 max-w-3xl text-left mt-6'>
+              Capture once. Keep producing.
             </p>
           </BlurFade>
         </div>

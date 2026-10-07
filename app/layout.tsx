@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Torque | Creative and Content Production Studio",
   description: "We build content, video, and ad creative for multi-location brands and real estate teams.",
   icons: {
-    icon: "/icon.png",
+    icon: "/Logo Draft white.png",
   }
 }
 

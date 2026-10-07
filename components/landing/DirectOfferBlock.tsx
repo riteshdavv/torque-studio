@@ -15,14 +15,19 @@ export function DirectOfferBlock() {
             <div className="py-5 md:py-6 flex items-baseline gap-4 md:gap-6 text-left">
               <span className="text-xs md:text-base font-sans tracking-[0.2em] text-zinc-500 uppercase shrink-0">02</span>
               <p className="font-sans text-lg md:text-2xl text-zinc-200 tracking-wide text-left">
-                Typical turnaround: 3 business days
+                Fast turnaround. Built for active campaigns.
               </p>
             </div>
             <div className="py-5 md:py-6 flex items-baseline gap-4 md:gap-6 text-left">
               <span className="text-xs md:text-base font-sans tracking-[0.2em] text-zinc-500 uppercase shrink-0">03</span>
-              <p className="font-sans text-lg md:text-2xl text-zinc-200 tracking-wide text-left">
-                First deliverable free — if it&apos;s not usable, no charge
-              </p>
+              <div className="flex flex-col gap-1">
+                <p className="font-sans text-lg md:text-2xl text-zinc-200 tracking-wide text-left uppercase">
+                  START SMALL.
+                </p>
+                <p className="font-sans text-base md:text-xl text-zinc-400">
+                  Pilot with one existing production before committing to a recurring engagement. Pilots start at $750.
+                </p>
+              </div>
             </div>
           </div>
         </BlurFade>

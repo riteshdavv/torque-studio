@@ -21,33 +21,33 @@ const trailImages = [
 
 export const defaultEntries: WorkflowEntry[] = [
   {
-    title: "KICKOFF.",
+    title: "INTAKE.",
     subtitle: "PHASE 01",
-    description: "We learn the brand, the market, and what on-brand actually means for you.",
+    description: "Send us the photos, footage and brand assets you already have.",
     image: "/kickoff.webp"
   },
   {
-    title: "PLAN.",
+    title: "STRATEGY.",
     subtitle: "PHASE 02",
-    description: "Executing the plan with precision. We capture both macro and micro details.",
+    description: "We determine what those inputs can become and what the content needs to accomplish.",
     image: "/plan.webp"
   },
   {
-    title: "PRODUCTION.",
+    title: "EDIT.",
     subtitle: "PHASE 03",
-    description: "Design and edits happen on our end, not yours.",
+    description: "Video, motion, graphics, carousels, ads and other assets are produced.",
     image: "/production.webp"
   },
   {
     title: "REVIEW.",
     subtitle: "PHASE 04",
-    description: "Color grading, retouching, and assembling the final narrative.",
+    description: "You review the work and we refine it.",
     image: "/review.webp"
   },
   {
     title: "DELIVERY.",
     subtitle: "PHASE 05",
-    description: "Assets are handed over, formatted perfectly for all digital channels.",
+    description: "Everything arrives formatted and ready to publish.",
     image: "/delivery.webp"
   },
 ];
