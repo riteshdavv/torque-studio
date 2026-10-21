@@ -5,12 +5,12 @@ import { BlurFade } from "@/components/BlurFade";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
-  { src: "/slide1.png", label: "01" },
-  { src: "/slide2.png", label: "02" },
-  { src: "/slide3.png", label: "03" },
-  { src: "/slide4.png", label: "04" },
-  { src: "/slide5.png", label: "05" },
-  { src: "/slide6.png", label: "06" },
+  { src: "/slide1.webp", label: "01" },
+  { src: "/slide2.webp", label: "02" },
+  { src: "/slide3.webp", label: "03" },
+  { src: "/slide4.webp", label: "04" },
+  { src: "/slide5.webp", label: "05" },
+  { src: "/slide6.webp", label: "06" },
 ];
 
 export function ConceptDeckSection() {
@@ -79,6 +79,8 @@ export function ConceptDeckSection() {
                     src={slide.src}
                     alt={`Concept deck slide ${slide.label}`}
                     className="w-full h-auto block transition-transform duration-700 ease-out group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 {/* Hover overlay */}
@@ -144,6 +146,8 @@ export function ConceptDeckSection() {
                   src={slide.src}
                   alt={`Concept deck slide ${slide.label}`}
                   className="absolute inset-0 w-full h-full object-contain transition-all duration-500 ease-out"
+                  loading={i === 0 ? "eager" : "lazy"}
+                  decoding="async"
                   style={{
                     opacity: lightboxIndex === i ? 1 : 0,
                     transform: lightboxIndex === i ? "scale(1)" : "scale(1.03)",
