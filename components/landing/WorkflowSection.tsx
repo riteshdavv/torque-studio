@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
-import { ArrowUpRight } from "lucide-react";
-import { ImageTrail } from "@/components/ImageTrail";
-import { BlurFade } from "@/components/BlurFade";
+import React, { useRef, useEffect, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export type WorkflowEntry = {
   title: string;
@@ -13,42 +14,38 @@ export type WorkflowEntry = {
   image: string;
 };
 
-const trailImages = [
-  "/craft1.webp",
-  "/craft2.webp",
-  "/craft3.webp",
-]
-
 export const defaultEntries: WorkflowEntry[] = [
   {
     title: "INTAKE.",
     subtitle: "PHASE 01",
     description: "Send us the photos, footage and brand assets you already have.",
-    image: "/kickoff.webp"
+    image: "/kickoff.webp",
   },
   {
     title: "STRATEGY.",
     subtitle: "PHASE 02",
-    description: "We determine what those inputs can become and what the content needs to accomplish.",
-    image: "/plan.webp"
+    description:
+      "We determine what those inputs can become and what the content needs to accomplish.",
+    image: "/plan.webp",
   },
   {
     title: "EDIT.",
     subtitle: "PHASE 03",
-    description: "Video, motion, graphics, carousels, ads and other assets are produced.",
-    image: "/production.webp"
+    description:
+      "Video, motion, graphics, carousels, ads and other assets are produced.",
+    image: "/production.webp",
   },
   {
     title: "REVIEW.",
     subtitle: "PHASE 04",
     description: "You review the work and we refine it.",
-    image: "/review.webp"
+    image: "/review.webp",
   },
   {
     title: "DELIVERY.",
     subtitle: "PHASE 05",
     description: "Everything arrives formatted and ready to publish.",
-    image: "/delivery.webp"
+    image: "/delivery.webp",
   },
 ];
 
@@ -63,219 +60,170 @@ export function WorkflowSection({
   description = "A meticulous process ensuring speed without sacrificing quality.",
   entries = defaultEntries,
 }: WorkflowSectionProps) {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [smoothPosition, setSmoothPosition] = useState({ x: 0, y: 0 });
-  const [isVisible, setIsVisible] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const animationRef = useRef<number | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    const lerp = (start: number, end: number, factor: number) => {
-      return start + (end - start) * factor;
-    };
+    const steps = stepRefs.current;
+    if (!steps.length) return;
 
-    const animate = () => {
-      setSmoothPosition((prev) => ({
-        x: lerp(prev.x, mousePosition.x, 0.15),
-        y: lerp(prev.y, mousePosition.y, 0.15),
-      }));
-      animationRef.current = requestAnimationFrame(animate);
-    };
+    const triggers: ScrollTrigger[] = [];
 
-    animationRef.current = requestAnimationFrame(animate);
+    steps.forEach((step, i) => {
+      if (!step) return;
+
+      const trigger = ScrollTrigger.create({
+        trigger: step,
+        start: "top 55%",
+        end: "bottom 45%",
+        onEnter: () => setActiveIndex(i),
+        onEnterBack: () => setActiveIndex(i),
+      });
+
+      triggers.push(trigger);
+    });
 
     return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
+      triggers.forEach((t) => t.kill());
     };
-  }, [mousePosition]);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect();
-      setMousePosition({
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-      });
-    }
-  };
-
-  const handleMouseEnter = (index: number) => {
-    setHoveredIndex(index);
-    setIsVisible(true);
-  };
-
-  const handleMouseLeave = () => {
-    setHoveredIndex(null);
-    setIsVisible(false);
-  };
+  }, [entries]);
 
   return (
     <section
       id="process"
-      onMouseMove={handleMouseMove}
-      className="w-full bg-[#111111] text-white py-16 md:py-32 px-6 md:px-12 flex flex-col items-center relative overflow-hidden"
+      ref={sectionRef}
+      className="w-full bg-[#111111] text-white py-16 md:py-32 px-6 md:px-12 flex flex-col items-center"
     >
-
-      <div className="absolute inset-0 z-0 translate-x-48 translate-y-32">
-        <ImageTrail
-        containerRef={containerRef}
-          rotationRange={0}
-          interval={80}
-          animationSequence={[
-            [{ opacity: 1, scale: 1.2 }, { duration: 0.2, ease: "circOut" }],
-            [{ opacity: 0, scale: 0.9 }, { duration: 0.6, ease: "circIn" }],
-          ]}
-        >
-          {trailImages.map((src) => (
-            <div
-              key={src}
-              className="w-32 h-24 md:w-44 md:h-32 overflow-hidden"
-            >
-              <Image
-                src={src}
-                alt=""
-                width={176}
-                height={128}
-                className="w-full h-full object-cover"
-                draggable={false}
-              />
-            </div>
-          ))}
-        </ImageTrail>
-      </div>
-      <div ref={containerRef} className="max-w-5xl w-full flex flex-col relative z-10">
+      <div className="max-w-6xl w-full flex flex-col">
+        {/* Header */}
         <h2 className="font-serif text-4xl md:text-7xl tracking-tighter uppercase mb-6 text-center italic text-zinc-300">
           {title}
         </h2>
         {description && (
-          <p className="mb-24 text-base text-zinc-400 md:text-lg text-center font-sans max-w-2xl mx-auto">
+          <p className="mb-16 md:mb-24 text-base text-zinc-400 md:text-lg text-center font-sans max-w-2xl mx-auto">
             {description}
           </p>
         )}
 
-        <div
-          className="pointer-events-none absolute z-50 overflow-hidden shadow-2xl translate-x-32 translate-y-40 hidden md:block"
-          style={{
-            left: 0,
-            top: 0,
-            transform: `translate3d(${smoothPosition.x + 20}px, ${smoothPosition.y - 100}px, 0)`,
-            opacity: isVisible ? 1 : 0,
-            scale: isVisible ? 1 : 0.8,
-            transition: "opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), scale 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-          }}
-        >
-          <div className="relative w-[320px] h-[220px] bg-[#151515] overflow-hidden">
-            {entries.map((entry, index) => (
-              <img
-                key={entry.title}
-                src={entry.image}
-                alt={entry.title}
-                className="absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-out"
-                style={{
-                  opacity: hoveredIndex === index ? 1 : 0,
-                  scale: hoveredIndex === index ? 1 : 1.1,
-                  filter: hoveredIndex === index ? "none" : "blur(10px)",
-                }}
-              />
-            ))}
-            {/* Subtle gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/40 to-transparent" />
-          </div>
-        </div>
+        {/* Two-column layout */}
+        <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-start">
 
-        <div className="px-4 space-y-0 w-full relative z-10 bg-[#111111]">
-          {entries.map((entry, index) => (
-            <div
-              key={entry.title}
-              className="group block"
-              onMouseEnter={() => handleMouseEnter(index)}
-              onMouseLeave={handleMouseLeave}
-            >
-              <div className="relative py-8 border-t border-zinc-800 transition-all duration-300 ease-out">
-                {/* Background highlight on hover */}
+          {/* ── LEFT: step list ── */}
+          <div className="flex-1 min-w-0 space-y-0">
+            {entries.map((entry, index) => {
+              const isActive = activeIndex === index;
+              return (
                 <div
-                  className={`
-                    absolute inset-0 -mx-6 px-6 bg-[#151515]
-                    transition-all duration-300 ease-out
-                    ${hoveredIndex === index ? "opacity-100 scale-100" : "opacity-0 scale-95"}
-                  `}
-                />
+                  key={entry.title}
+                  ref={(el) => { stepRefs.current[index] = el; }}
+                  className="border-t border-zinc-800 py-8 md:py-10 transition-all duration-500"
+                >
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-6">
+                    <div className="flex items-center gap-6 md:gap-10">
+                      {/* Phase label */}
+                      <span
+                        className={`text-xs lg:text-sm font-sans tracking-[0.2em] uppercase transition-colors duration-500 min-w-[90px] ${
+                          isActive ? "text-white" : "text-zinc-600"
+                        }`}
+                      >
+                        {entry.subtitle}
+                      </span>
 
-                <div className="relative flex flex-col md:flex-row md:items-center justify-between gap-2 md:gap-4">
-                  <div className="flex items-center gap-6 md:gap-12">
-                    {/* Subtitle / Phase */}
-                    <span
-                      className={`
-                        text-xs lg:text-sm font-sans tracking-[0.2em] uppercase transition-all duration-300 ease-out min-w-[100px]
-                        ${hoveredIndex === index ? "text-white" : "text-zinc-500"}
-                      `}
-                    >
-                      {entry.subtitle}
-                    </span>
-
-                    {/* Title with animated underline */}
-                    <div className="inline-flex items-center gap-4">
-                      <h3 className="text-white font-serif text-[1.25rem] md:text-4xl lg:text-5xl tracking-tight uppercase">
+                      {/* Title */}
+                      <h3
+                        className={`font-serif text-2xl md:text-4xl lg:text-5xl tracking-tight uppercase transition-colors duration-500 ${
+                          isActive ? "text-white" : "text-zinc-600"
+                        }`}
+                      >
                         <span className="relative inline-block">
                           {entry.title}
-                          {/* Animated underline */}
                           <span
-                            className={`
-                              absolute left-0 -bottom-1 h-[2px] bg-white
-                              transition-all duration-300 ease-out
-                              ${hoveredIndex === index ? "w-full" : "w-0"}
-                            `}
+                            className={`absolute left-0 -bottom-1 h-[2px] bg-white transition-all duration-500 ease-out ${
+                              isActive ? "w-full" : "w-0"
+                            }`}
                           />
                         </span>
                       </h3>
-
-                      {/* Arrow that slides in */}
-                      <ArrowUpRight
-                        className={`
-                          w-6 h-6 text-zinc-400
-                          transition-all duration-300 ease-out
-                          ${hoveredIndex === index
-                            ? "opacity-100 translate-x-0 translate-y-0"
-                            : "opacity-0 -translate-x-4 translate-y-4"
-                          }
-                        `}
-                      />
                     </div>
-                  </div>
 
-                  {/* Description with fade effect */}
-                  <div className="md:max-w-[260px] lg:max-w-sm md:text-right mt-4 md:mt-0 ml-0 md:ml-0">
+                    {/* Description */}
                     <p
-                      className={`
-                        font-sans text-md leading-relaxed
-                        transition-all duration-300 ease-out
-                        ${hoveredIndex === index ? "text-zinc-300" : "text-zinc-600"}
-                      `}
+                      className={`font-sans text-sm md:text-base leading-relaxed md:max-w-[260px] md:text-right transition-colors duration-500 ${
+                        isActive ? "text-zinc-300" : "text-zinc-600"
+                      }`}
                     >
                       {entry.description}
                     </p>
                   </div>
-                  
-                  {/* Mobile inline image */}
-                  <div className="block md:hidden mt-6 w-full">
-                    <BlurFade delay={0.1} inView>
-                      <img 
-                        src={entry.image} 
-                        alt={entry.title} 
-                        className="w-full h-[220px] object-cover" 
+
+                  {/* Mobile image — shown inline below description */}
+                  <div className="block md:hidden mt-6 w-full overflow-hidden">
+                    <div
+                      className={`transition-all duration-500 ${
+                        isActive ? "opacity-100 scale-100" : "opacity-40 scale-[0.98]"
+                      }`}
+                    >
+                      <img
+                        src={entry.image}
+                        alt={entry.title}
+                        className="w-full h-auto block object-cover"
                       />
-                    </BlurFade>
+                    </div>
                   </div>
                 </div>
+              );
+            })}
+            {/* Bottom border */}
+            <div className="border-t border-zinc-800" />
+          </div>
+
+          {/* ── RIGHT: sticky image panel (desktop only) ── */}
+          <div className="hidden md:block w-[380px] lg:w-[440px] xl:w-[480px] shrink-0 sticky top-28 self-start">
+            <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#0a0a0a]">
+              {entries.map((entry, index) => (
+                <img
+                  key={entry.title}
+                  src={entry.image}
+                  alt={entry.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out"
+                  style={{
+                    opacity: activeIndex === index ? 1 : 0,
+                    transform: activeIndex === index ? "scale(1)" : "scale(1.04)",
+                    filter: activeIndex === index ? "none" : "blur(4px)",
+                  }}
+                />
+              ))}
+
+              {/* Gradient overlay for polish */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/50 to-transparent pointer-events-none" />
+
+              {/* Active phase label overlay */}
+              <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between pointer-events-none">
+                <span className="font-sans text-xs tracking-[0.2em] uppercase text-white/60">
+                  {entries[activeIndex]?.subtitle}
+                </span>
+                <span className="font-serif text-sm italic text-white/60">
+                  {entries[activeIndex]?.title}
+                </span>
               </div>
             </div>
-          ))}
 
-          {/* Bottom border for last item */}
-          <div className="border-t border-zinc-800" />
+            {/* Progress dots */}
+            <div className="flex gap-2 mt-4 justify-center">
+              {entries.map((_, i) => (
+                <div
+                  key={i}
+                  className={`h-[2px] transition-all duration-500 ease-out ${
+                    activeIndex === i
+                      ? "w-8 bg-white"
+                      : "w-4 bg-zinc-700"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

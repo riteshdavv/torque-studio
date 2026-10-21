@@ -152,7 +152,7 @@ export function HeroSection() {
           {/* CTA links */}
           <BlurFade delay={1.2} yOffset={16} className="flex flex-col items-start gap-4 shrink-0">
             <Link data-cursor="hand" href="#contact" onClick={(e) => handleNavClick(e, "#contact")} className="group flex flex-col items-start gap-2 text-md tracking-[0.1em] uppercase text-zinc-200 font-sans">
-              <span>START A PILOT &rarr;</span>
+              <span>START THE 7-DAY PILOT &rarr;</span>
               <span className="w-full h-[1px] bg-zinc-400 group-hover:bg-white transition-colors"></span>
             </Link>
             <span className="text-sm tracking-widest text-zinc-400 font-sans italic">No second shoot required.</span>

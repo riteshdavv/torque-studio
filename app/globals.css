@@ -56,7 +56,7 @@ a, button{
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 99999;
   transform-origin: top left;
 
   /* Promote to GPU compositor layer — eliminates jitter */

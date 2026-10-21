@@ -129,7 +129,7 @@ export function FifteenMinutesSection() {
             }}
             className="bg-zinc-800 text-white px-12 py-4 text-lg tracking-[0.2em] uppercase font-sans hover:bg-black transition-colors mb-6"
           >
-            START A PILOT &rarr;
+            START THE 7-DAY PILOT &rarr;
           </button>
           <p className="font-sans text-sm md:text-base py-4 tracking-widest text-zinc-500 uppercase text-center max-w-base">
             No deck. No long-term commitment.<br />No second shoot required.

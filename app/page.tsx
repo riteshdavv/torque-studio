@@ -1,6 +1,7 @@
 import { HeroSection } from "@/components/landing/HeroSection"
 import { DirectOfferBlock } from "@/components/landing/DirectOfferBlock"
 import { TorqueVideoSection } from "@/components/landing/TorqueVideoSection"
+import { ConceptDeckSection } from "@/components/landing/ConceptDeckSection"
 import { TheProblemSection } from "@/components/landing/TheProblemSection"
 import { TheSystemSection } from "@/components/landing/TheSystemSection"
 import { WhatOneProductionBecomes } from "@/components/landing/WhatOneProductionBecomes"
@@ -19,6 +20,7 @@ export default function Page() {
       <GridRevealClient />
       <HeroSection />
       <DirectOfferBlock />
+      <ConceptDeckSection />
       <TorqueVideoSection />
       <TheProblemSection />
       <TheSystemSection />

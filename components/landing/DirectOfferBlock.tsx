@@ -22,10 +22,10 @@ export function DirectOfferBlock() {
               <span className="text-xs md:text-base font-sans tracking-[0.2em] text-zinc-500 uppercase shrink-0">03</span>
               <div className="flex flex-col gap-1">
                 <p className="font-sans text-lg md:text-2xl text-zinc-200 tracking-wide text-left uppercase">
-                  START SMALL.
+                  THE 7-DAY PROOF OF CONCEPT.
                 </p>
                 <p className="font-sans text-base md:text-xl text-zinc-400">
-                  Pilot with one existing production before committing to a recurring engagement. Pilots start at $750.
+                  Test our speed with a single raw asset. One week, $750. No long-term commitments required upfront.
                 </p>
               </div>
             </div>
