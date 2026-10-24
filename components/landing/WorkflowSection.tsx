@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect, useState, useCallback } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 export type WorkflowEntry = {
   title: string;
@@ -62,31 +62,28 @@ export function WorkflowSection({
   // Which index to visually highlight — hovered takes priority over scroll-active
   const displayIndex = hoveredIndex !== null ? hoveredIndex : activeIndex;
 
-  const handleScroll = useCallback(() => {
-    const viewportMid = window.innerHeight / 2;
-    let closest = 0;
-    let closestDist = Infinity;
-
-    stepRefs.current.forEach((el, i) => {
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const elMid = rect.top + rect.height / 2;
-      const dist = Math.abs(elMid - viewportMid);
-      if (dist < closestDist) {
-        closestDist = dist;
-        closest = i;
-      }
-    });
-
-    setActiveIndex(closest);
-  }, []);
-
+  // IntersectionObserver — only fires when steps enter/leave the centre band.
+  // rootMargin "-40% 0px -40% 0px" creates a 20vh detection window at the
+  // viewport midpoint. No per-frame work, no jank.
   useEffect(() => {
-    // Run once on mount to set the correct initial active step
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = stepRefs.current.indexOf(
+              entry.target as HTMLDivElement
+            );
+            if (index !== -1) setActiveIndex(index);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -40% 0px", threshold: 0 }
+    );
+
+    stepRefs.current.forEach((el) => { if (el) observer.observe(el); });
+    return () => observer.disconnect();
+  }, [entries]);
+
 
   return (
     <section
