@@ -34,7 +34,7 @@ export function PricingSection() {
 
                 <BlurFade delay={0.6} inView>
                     <p className="font-sans text-base md:text-lg text-zinc-400 max-w-lg mx-auto">
-                        Loved the week? Scale into our monthly partnerships: <br /> Growth Retainer ($6k/mo) or Enterprise Retainer ($9k/mo).
+                        Loved the week? Scale into our monthly partnerships.
                     </p>
                 </BlurFade>
             </div>
